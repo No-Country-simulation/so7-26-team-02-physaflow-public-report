@@ -82,15 +82,16 @@ rm -rf .next
 
 Then run `pnpm build` before `pnpm dev`.
 
-### Hydration mismatch on `<body>`
+### Hydration mismatch on `<html>` / `<body>`
 
-If the browser console reports a hydration error pointing at
-`app/layout.tsx` with an unknown attribute such as
-`__processed_<uuid>__="true"`, the cause is a browser extension injecting
-attributes into the DOM before React hydrates. It is not an application bug.
+If the browser console reports a hydration error on `app/layout.tsx`
+(e.g. mismatched `className` on `<html>`, or an unknown attribute like
+`__processed_<uuid>__="true"`), a browser extension often mutated the DOM
+before React hydrated. `suppressHydrationWarning` on `<html>` and `<body>`
+covers this expected case.
 
-Confirm it by opening the page in a private/incognito window. If the error
-disappears, no code change is needed.
+Confirm with a private/incognito window (extensions disabled): if the warning
+only appears with extensions on, it is not an application logic bug.
 
 ### Port 3000 already in use
 
