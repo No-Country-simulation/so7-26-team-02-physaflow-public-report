@@ -13,13 +13,13 @@ Public website for the PhysaFlow report about **Stranded Capacity** in AI data c
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open http://localhost:3000
@@ -27,7 +27,7 @@ Open http://localhost:3000
 Verify the production build compiles:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## Commit Convention
@@ -57,7 +57,7 @@ SO7 - Team 02
 Report content is written in `.mdx` files. Any `page.mdx` inside `app/`
 becomes a route, and React components can be imported and used inline.
 
-See `app/prueba-mdx/page.mdx` for a working reference.
+See `app/sandbox/page.mdx` for a working reference.
 
 Shared MDX component overrides live in `mdx-components.tsx` at the project root.
 
@@ -80,7 +80,7 @@ Remove-Item -Recurse -Force .next
 rm -rf .next
 ```
 
-Then run `npm run build` before `npm run dev`.
+Then run `pnpm build` before `pnpm dev`.
 
 ### Hydration mismatch on `<body>`
 

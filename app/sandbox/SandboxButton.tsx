@@ -1,6 +1,6 @@
 'use client'
 
-export default function BotonPrueba() {
+export default function SandboxButton() {
   return (
     <button 
       onClick={() => alert('¡El componente React funciona dentro de MDX!')}
