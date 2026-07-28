@@ -13,13 +13,13 @@ Public website for the PhysaFlow report about **Stranded Capacity** in AI data c
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open http://localhost:3000
@@ -27,7 +27,7 @@ Open http://localhost:3000
 Verify the production build compiles:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ## Commit Convention
@@ -99,7 +99,7 @@ SO7 - Team 02
 Report content is written in `.mdx` files. Any `page.mdx` inside `app/`
 becomes a route, and React components can be imported and used inline.
 
-See `app/prueba-mdx/page.mdx` for a working reference.
+See `app/sandbox/page.mdx` for a working reference.
 
 Shared MDX component overrides live in `mdx-components.tsx` at the project root.
 
@@ -122,17 +122,18 @@ Remove-Item -Recurse -Force .next
 rm -rf .next
 ```
 
-Then run `npm run build` before `npm run dev`.
+Then run `pnpm build` before `pnpm dev`.
 
-### Hydration mismatch on `<body>`
+### Hydration mismatch on `<html>` / `<body>`
 
-If the browser console reports a hydration error pointing at
-`app/layout.tsx` with an unknown attribute such as
-`__processed_<uuid>__="true"`, the cause is a browser extension injecting
-attributes into the DOM before React hydrates. It is not an application bug.
+If the browser console reports a hydration error on `app/layout.tsx`
+(e.g. mismatched `className` on `<html>`, or an unknown attribute like
+`__processed_<uuid>__="true"`), a browser extension often mutated the DOM
+before React hydrated. `suppressHydrationWarning` on `<html>` and `<body>`
+covers this expected case.
 
-Confirm it by opening the page in a private/incognito window. If the error
-disappears, no code change is needed.
+Confirm with a private/incognito window (extensions disabled): if the warning
+only appears with extensions on, it is not an application logic bug.
 
 ### Port 3000 already in use
 
