@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI agent config
+CLAUDE.md
+AGENTS.md
+.claude/
+.agents/
+.kiro/
+.vscode/
+.atl/
+openspec/
