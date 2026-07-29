@@ -1,3 +1,4 @@
+import CapacityBarChart from "./components/charts/CapacityBarChart";
 import PaletteTest from "./components/PaletteTest";
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center bg-background">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center py-32 px-16">
         <PaletteTest />
+        <CapacityBarChart />
       </main>
     </div>
   );
