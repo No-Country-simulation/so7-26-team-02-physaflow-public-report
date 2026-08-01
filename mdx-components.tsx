@@ -4,28 +4,28 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // El contenedor principal de todo el MDX
     wrapper: ({ children }) => (
-      <article className="prose lg:prose-lg mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
+      <article className="prose prose-invert lg:prose-lg mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-16">
         {children}
       </article>
     ),
     
     // Título principal de la sección
     h1: ({ children }) => (
-      <h1 className="mb-8 mt-0 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+      <h1 className="mb-8 mt-0 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
         {children}
       </h1>
     ),
     
     // Subtítulos (ej. "Qué se observa", "Qué cuesta")
     h2: ({ children }) => (
-      <h2 className="mt-12 mb-4 border-b border-border pb-2 text-2xl font-semibold text-foreground sm:text-3xl">
+      <h2 className="mt-10 mb-4 border-b border-border pb-2 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl md:text-3xl">
         {children}
       </h2>
     ),
     
     // Títulos menores (ej. "Indicadores")
     h3: ({ children }) => (
-      <h3 className="mt-8 mb-3 text-xl font-semibold text-accent-light sm:text-2xl">
+      <h3 className="mt-6 mb-3 text-lg font-semibold text-accent-light sm:mt-8 sm:text-xl md:text-2xl">
         {children}
       </h3>
     ),
@@ -46,12 +46,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     
     // Citas o definiciones importantes
     blockquote: ({ children }) => (
-      <blockquote className="my-6 border-l-4 border-accent bg-surface py-2 pl-6 pr-4 text-foreground italic">
+      <blockquote className="my-6 border-l-4 border-accent bg-surface py-2 pl-4 pr-3 text-sm italic text-foreground sm:pl-6 sm:pr-4 sm:text-base">
         {children}
       </blockquote>
     ),
     
-    // Tablas de datos (crítico para las métricas)
+    // Tablas de datos (crítico para las métricas en móvil)
     table: ({ children }) => (
       <div className="my-8 overflow-x-auto">
         <table className="w-full border-collapse text-left text-sm text-foreground/90">
@@ -60,12 +60,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </div>
     ),
     th: ({ children }) => (
-      <th className="border-b border-border bg-primary px-4 py-3 font-semibold text-accent-light">
+      <th className="border-b border-border bg-primary px-3 py-2 font-semibold text-accent-light sm:px-4 sm:py-3">
         {children}
       </th>
     ),
     td: ({ children }) => (
-      <td className="border-b border-border px-4 py-3">
+      <td className="border-b border-border px-3 py-2 sm:px-4 sm:py-3">
         {children}
       </td>
     ),
