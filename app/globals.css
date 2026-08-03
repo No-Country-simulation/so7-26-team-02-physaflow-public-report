@@ -42,3 +42,18 @@ body {
   @apply bg-background text-foreground;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+/* === JERARQUÍA TIPOGRÁFICA DEL REPORTE (lectura larga) ===
+   H1 -> Título de sección: ~2.25rem en desktop, tracking-tight, con borde
+         inferior editorial (border-border). Separado del contenido.
+   H2 -> Bloque temático (Resumen / Qué se observa / Qué cuesta / Por qué ocurre).
+   H3 -> Sub-bloque dentro de un bloque temático (p. ej. Indicadores).
+   Párrafo -> 1.125rem en desktop (prose-lg), line-height 1.75, ancho máximo
+              ~65ch (max-w-3xl) para lectura larga cómoda.
+   El punto único de control es el wrapper en mdx-components.tsx. */
+
+/* Seguro anti-overflow (mobile/tablet): evita desbordes horizontales por
+   palabras o URLs largas dentro del contenido tipográfico. */
+article {
+  overflow-wrap: break-word;
+}
