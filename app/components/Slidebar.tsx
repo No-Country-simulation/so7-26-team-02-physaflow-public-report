@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useState } from "react";
 import {
     LayoutDashboard,
     TriangleAlert,
@@ -9,7 +10,10 @@ import {
     Server,
     Workflow,
     ChartNoAxesCombined,
-    Quote,} from "lucide-react";
+    Quote,
+    PanelLeftClose,
+    PanelLeftOpen,
+} from "lucide-react";
 
 const navItems = [
     {
@@ -54,19 +58,35 @@ const navItems = [
     },
 ];
 
-
-
 export default function Slidebar() {
+    const [isOpen, setIsOpen] = useState(true);
     const pathname = usePathname();
+
     return (
-        <aside className="bg-background w-64 h-full p-4">
-            <div className="px-3 py-6 mb-2 border-b border-border">
-                <h1 className="text-foreground text-3xl font-sans font-extrabold tracking-tight">
-                    PHYSHA<span className="text-accent">FLOW</span>
-                </h1>
-                <p className="text-accent-light text-xs uppercase tracking-widest mt-1">
-                    Stranded capacity report
-                </p>
+        <aside
+            className={`bg-background h-full p-4 transition-all duration-300 ${isOpen ? "w-64" : "w-20"}`}>
+            <div className={`flex items-center gap-3 px-3 py-6 mb-2 border-b border-border 
+                ${isOpen ? "justify-between" : "justify-center"}`}>
+                {isOpen && (
+                    <div >
+                        <h1 className="text-foreground text-3xl font-sans font-extrabold tracking-tight">
+                            PHYSHA<span className="text-accent">FLOW</span>
+                        </h1>
+                        <p className="text-accent-light text-xs uppercase tracking-widest mt-1">
+                            Stranded capacity report
+                        </p>
+                    </div>
+                )}
+                
+                <button onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center justify-center w-10 h-10 ml-auto rounded-md text-accent bg-surface ... z-10 border-1
+              hover:bg-surface hover:text-foreground transition-colors shrink-0">
+                    {isOpen ? (
+                        <PanelLeftClose className="w-5 h-5" />
+                    ) : (
+                        <PanelLeftOpen className="w-5 h-5" />
+                    )}
+                </button>
             </div>
             <nav>
                 <ul className="m-3 space-y-1">
@@ -76,12 +96,22 @@ export default function Slidebar() {
                             <li key={item.href} className="flex flex-col justify-center">
                                 <Link
                                     href={item.href}
-                                    className={`flex gap-3 h-11 rounded-lg justify-start items-center pl-7 w-full transition-all duration-200 ${
+                                    className={`group relative flex gap-3 h-11 rounded-lg items-center w-full transition-all duration-200 ${
+                                        isOpen ? "justify-start pl-7" : "justify-center px-0"
+                                    } ${
                                         isActive
-                                            ? "bg-accent/10 text-accent border-l-2 border-accent font-semibold shadow-sm"
-                                            : "text-muted hover:bg-surface hover:text-foreground hover:translate-x-1"}`}>
-                                <item.icon className={`w-5 h-5 transition-colors ${isActive ? "text-accent" : "text-muted"}`}/>
-                                    <span className="text-[18px]">{item.label}</span>
+                                            ? `bg-accent/10 text-accent font-semibold shadow-sm ${isOpen ? "border-l-2 border-accent" : ""}`
+                                            : "text-muted hover:bg-surface hover:text-foreground hover:translate-x-1"
+                                    }`}
+                                >
+                                <item.icon className={`w-5 h-5 transition-colors ${isActive ? "text-accent" : "text-muted"}`} />
+                                {isOpen && <span className="text-[18px]">{item.label}</span>}
+
+                                {!isOpen && (
+                                    <span className="absolute left-full ml-3 px-2 py-1 rounded-md bg-surface text-accent text-sm whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 z-50 border">
+                                        {item.label}
+                                    </span>
+                                 )}
                                 </Link>
                             </li>
                         );
