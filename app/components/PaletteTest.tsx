@@ -1,6 +1,6 @@
 export default function PaletteTest() {
     return (
-      <div className="max-w-md rounded-xl bg-surface border border-border p-6 space-y-4">
+      <div className="max-w-md rounded-xl bg-background border border-border p-6 space-y-4">
         <h2 className="text-xl font-bold text-foreground">
           PhysaFlow Palette
         </h2>
