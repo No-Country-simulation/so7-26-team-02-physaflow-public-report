@@ -91,7 +91,7 @@ const renderNavigation = (collapsed = false) => (
                                               ? "border-l-2 border-accent"
                                               : ""
                                       }`
-                                    : "text-muted hover:translate-x-1 hover:bg-surface hover:text-foreground"
+                                    : "text-muted hover:translate-x-1 hover:bg-background hover:text-foreground"
                             }`}
                         >
                             <Icon className={`h-5 w-5 shrink-0 ${isActive ? "text-accent": "text-muted"}`}/>
@@ -135,7 +135,7 @@ const buttonStyles =
 return (
     <>
         <aside
-            className={`hidden h-full bg-background p-4 transition-[width] duration-300 md:block ${
+            className={`hidden h-full bg-surface p-4 transition-[width] duration-300 md:block ${
                 isOpen ? "w-64" : "w-20"
             }`}
         >
@@ -218,7 +218,7 @@ return (
                         onClick={() =>
                             setIsMobileOpen(false)
                         }
-                        className={buttonStyles}
+                        className={`ml-3 ${buttonStyles}`}
                     >
                         <X className="h-5 w-5" />
                     </button>
