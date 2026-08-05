@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.css"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PhysaFlow - Stranded Capacity Report",
-  description: "A report on the stranded capacity of the electricity system",
+  title: "PhysaFlow — Stranded Capacity Index",
+  description: "Reporte de referencia de la industria sobre stranded capacity en data centers de IA. Taxonomía de capas Facility, IT y Workload.",
 };
 
 export default function RootLayout({
@@ -23,10 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning: browser extensions often mutate <html>/<body>
-    // attributes before React hydrates (className, data-*, etc.).
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >

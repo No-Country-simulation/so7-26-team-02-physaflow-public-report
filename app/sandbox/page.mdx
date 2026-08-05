@@ -1,8 +1,26 @@
-import SandboxButton from './SandboxButton'
+# Cooling-Locked Capacity
 
-# Prueba de MDX en Next.js
+## Resumen
+Cooling-Locked Capacity ocurre cuando existe capacidad eléctrica y computacional disponible, pero las restricciones térmicas impiden utilizarla de forma segura.
 
-Esta es una página escrita en un archivo **.mdx**.
+## Qué se observa
+Algunas zonas alcanzan límites térmicos mientras otras mantienen capacidad disponible. Los operadores no pueden aumentar la carga sin superar los límites de temperatura.
 
-### Componente de React embebido:
-<SandboxButton />
+## Qué cuesta
+Parte de la infraestructura permanece energizada, pero no puede utilizarse para generar trabajo computacional.
+
+## Por qué ocurre
+La capacidad de cooling puede estar distribuida de forma desigual o no adaptarse a cambios en la densidad de los racks.
+
+> Illustrative data — not based on measured PhysaFlow results.
+
+### Indicadores
+- Capacidad instalada: 10 MW
+- Capacidad utilizable: 8.2 MW
+- Capacidad stranded: 18%
+- Tiempo bajo restricción: 8 horas
+
+| Métrica | Valor |
+|--------|-------|
+| Capacidad stranded | 18% |
+| Utilización | 60% |
