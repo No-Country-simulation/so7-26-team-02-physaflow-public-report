@@ -17,6 +17,13 @@ TriangleAlert,
 Workflow,
 X,
 } from "lucide-react";
+import { getTaxonomyLayers, taxonomyPath } from "../taxonomy/layers";
+
+const layerIcons: Record<string, typeof Building2> = {
+facility: Building2,
+it: Server,
+workload: Workflow,
+};
 
 const navItems = [
 {
@@ -34,21 +41,11 @@ label: "Taxonomy",
 href: "/taxonomy",
 icon: Network,
 },
-{
-label: "Facility",
-href: "/facility",
-icon: Building2,
-},
-{
-label: "IT",
-href: "/it",
-icon: Server,
-},
-{
-label: "Workload",
-href: "/workload",
-icon: Workflow,
-},
+...getTaxonomyLayers().map((layer) => ({
+    label: layer.navLabel,
+    href: taxonomyPath(layer.slug),
+    icon: layerIcons[layer.slug],
+})),
 {
 label: "Evidence",
 href: "/evidence",
@@ -119,7 +116,7 @@ const renderBrand = (collapsed = false) => {
     return (
         <div>
             <h1 className="text-3xl font-extrabold tracking-tight text-foreground">
-                PHYSHA<span className="text-accent">FLOW</span>
+                PHYSA<span className="text-accent">FLOW</span>
             </h1>
 
             <p className="mt-1 text-xs uppercase tracking-widest text-accent-light">
@@ -174,7 +171,7 @@ return (
         <div className="md:hidden">
             <header className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border bg-background px-4 py-3">
                 <h1 className="text-xl font-extrabold tracking-tight text-foreground">
-                    PHYSHA<span className="text-accent">
+                    PHYSA<span className="text-accent">
                         FLOW
                     </span>
                 </h1>
