@@ -31,9 +31,10 @@ export default function RootLayout({
     >
       <body className="h-screen flex flex-row" suppressHydrationWarning>
         <Slidebar />
-        {/* pt-16 reserva el alto del header fijo del sidebar en mobile;
-            en md+ el sidebar es estático y no hace falta padding. */}
-        <main className="w-full flex-1 overflow-y-auto pt-16 md:pt-0">
+        {/* Gutter horizontal único del contenido: px-5 (20px) en mobile,
+            sm:px-6 (24px) en el resto. pt-16 reserva el alto del header
+            fijo del sidebar en mobile; en md+ el sidebar es estático. */}
+        <main className="w-full flex-1 overflow-y-auto px-5 pt-16 sm:px-6 md:pt-0">
           {children}
         </main>
       </body>
