@@ -186,8 +186,6 @@ return (
                 </button>
             </header>
 
-            <div className="h-16" />
-
             <button
                 type="button"
                 aria-label="Close menu"
