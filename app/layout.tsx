@@ -34,7 +34,10 @@ export default function RootLayout({
         {/* Gutter horizontal único del contenido: px-5 (20px) en mobile,
             sm:px-6 (24px) en el resto. pt-16 reserva el alto del header
             fijo del sidebar en mobile; en md+ el sidebar es estático. */}
-        <main className="w-full flex-1 overflow-y-auto px-5 pt-16 sm:px-6 md:pt-0">
+        <main
+          id="app-scroll-container"
+          className="w-full flex-1 overflow-y-auto px-5 pt-16 sm:px-6 md:pt-0"
+        >
           {children}
         </main>
       </body>
