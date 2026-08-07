@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   ResponsiveContainer,
   LineChart,
@@ -109,6 +110,15 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 };
 
 export default function ITNetworkLatencyChart() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 420);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section style={{ margin: "2.5rem 0" }}>
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -139,7 +149,6 @@ export default function ITNetworkLatencyChart() {
             <LineChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid stroke="#2a3830" strokeDasharray="3 3" vertical={false} />
 
-              {/* Ventanas ETL resaltadas */}
               <ReferenceArea x1="03:00" x2="05:00" fill="#c9a227" fillOpacity={0.06} />
               <ReferenceArea x1="15:00" x2="17:00" fill="#c9a227" fillOpacity={0.06} />
 
@@ -149,6 +158,7 @@ export default function ITNetworkLatencyChart() {
                 axisLine={{ stroke: "#2a3830" }}
                 tickLine={false}
                 interval={2}
+                tickFormatter={(v) => (isMobile ? `${parseInt(v)}h` : v)}
               />
 
               <YAxis

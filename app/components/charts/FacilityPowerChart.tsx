@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -71,6 +72,15 @@ const CustomTooltip = ({
 };
 
 export default function FacilityPowerChart() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 420);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section style={{ margin: "2.5rem 0" }}>
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -114,6 +124,7 @@ export default function FacilityPowerChart() {
                 axisLine={{ stroke: "#2a3830" }}
                 tickLine={false}
                 interval={2}
+                tickFormatter={(v) => (isMobile ? `${parseInt(v)}h` : v)}
               />
 
               <YAxis
