@@ -1,4 +1,6 @@
 import IndicatorsPanel from "../../components/IndicatorsPanel.tsx";
+import ITNetworkLatencyChart from "../../components/charts/ITNetworkLatencyChart.tsx";
+import ITCapacityBreakdownChart from "../../components/charts/ITCapacityBreakdownChart.tsx";
 
 # IT — Red y Almacenamiento
 
@@ -28,5 +30,9 @@ El dimensionamiento de la red y del almacenamiento se define por picos teóricos
     { label: "Tiempo bajo restricción", value: "4 horas" },
   ]}
 />
+
+<ITNetworkLatencyChart />
+
+<ITCapacityBreakdownChart />
 
 > Illustrative data — not based on measured PhysaFlow results.

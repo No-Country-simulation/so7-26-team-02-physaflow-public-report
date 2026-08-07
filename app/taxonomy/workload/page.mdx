@@ -1,4 +1,6 @@
 import IndicatorsPanel from "../../components/IndicatorsPanel.tsx";
+import WorkloadUtilizationChart from "../../components/charts/WorkloadUtilizationChart.tsx";
+import WorkloadAllocationChart from "../../components/charts/WorkloadAllocationChart.tsx";
 
 # Workload — Orquestación de Cargas
 
@@ -28,5 +30,9 @@ Las cargas se planifican con márgenes de seguridad heredados de cuando la varia
     { label: "Tiempo bajo restricción", value: "12 horas" },
   ]}
 />
+
+<WorkloadUtilizationChart />
+
+<WorkloadAllocationChart />
 
 > Illustrative data — not based on measured PhysaFlow results.

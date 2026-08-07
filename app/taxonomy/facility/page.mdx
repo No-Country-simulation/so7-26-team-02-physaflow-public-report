@@ -1,4 +1,6 @@
 import IndicatorsPanel from "../../components/IndicatorsPanel.tsx";
+import FacilityPowerChart from "../../components/charts/FacilityPowerChart.tsx";
+import FacilityThermalChart from "../../components/charts/FacilityThermalChart.tsx";
 
 # Facility — Energía y Enfriamiento
 
@@ -28,5 +30,9 @@ La distribución de energía y enfriamiento se diseñó para un escenario de den
     { label: "Tiempo bajo restricción", value: "8 horas" },
   ]}
 />
+
+<FacilityPowerChart />
+
+<FacilityThermalChart />
 
 > Illustrative data — not based on measured PhysaFlow results.
