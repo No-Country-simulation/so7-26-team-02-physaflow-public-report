@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   ResponsiveContainer,
   BarChart,
@@ -17,6 +18,13 @@ const data = [
   { period: "Tarde", batch: 32, realtime: 26, reserve: 6, idle: 36 },
   { period: "Noche", batch: 8, realtime: 10, reserve: 6, idle: 76 },
 ];
+
+const periodShortMap: Record<string, string> = {
+  "Mañana": "Mañ",
+  "Mediodía": "Med",
+  "Tarde": "Tar",
+  "Noche": "Noc",
+};
 
 const COLORS = {
   batch: "#c9a227",
@@ -95,6 +103,15 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 };
 
 export default function WorkloadAllocationChart() {
+  const [isTinyMobile, setIsTinyMobile] = useState(false);
+
+  useEffect(() => {
+    const checkTiny = () => setIsTinyMobile(window.innerWidth <= 340);
+    checkTiny();
+    window.addEventListener("resize", checkTiny);
+    return () => window.removeEventListener("resize", checkTiny);
+  }, []);
+
   return (
     <section style={{ margin: "2.5rem 0" }}>
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -130,6 +147,7 @@ export default function WorkloadAllocationChart() {
                 tick={{ fill: "#a8afa9", fontSize: 12 }}
                 axisLine={{ stroke: "#2a3830" }}
                 tickLine={false}
+                tickFormatter={(v) => (isTinyMobile ? periodShortMap[v] || v : v)}
               />
 
               <YAxis
