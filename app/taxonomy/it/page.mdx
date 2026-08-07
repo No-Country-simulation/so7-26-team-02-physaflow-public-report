@@ -8,20 +8,8 @@ import ITCapacityBreakdownChart from "../../components/charts/ITCapacityBreakdow
 
 La capa IT abarca la red, el almacenamiento y la infraestructura de cómputo que conecta las cargas con la energía disponible. La capacidad varada en esta capa aparece cuando los equipos están instalados y energizados, pero el tráfico o los datos no pueden fluir a su rendimiento nominal por congestión o cuellos de botella en la malla.
 
-## Qué se observa
-
-Se observan ráfagas de latencia que aparecen durante operaciones de extracción, transformación y carga de datos, mientras el resto del tiempo la red opera con folgura. Enlaces de alta capacidad muestran utilización baja en promedio, pero micro-congestión en momentos puntuales. El almacenamiento reporta discos en buen estado, aunque el rendimiento de entrada y salida queda por debajo de lo esperado por colas de espera mal configuradas.
-
-## Qué cuesta
-
-Cada servidor conectado pero subutilizado representa capacidad de cómputo pagada que no participa en la producción. La congestión de la malla obliga a sobredimensionar enlaces y a mantener nodos de respaldo activos. La ineficiencia se mide en IOPS perdidas, en latencia que se propaga a las aplicaciones y en energía que alimenta equipos cuyo rendimiento está limitado por la red.
-
-## Por qué ocurre
-
-El dimensionamiento de la red y del almacenamiento se define por picos teóricos y no por el perfil real de las cargas. Los protocolos de control de congestión se comportan mal ante ráfagas cortas, las colas por nodo no se ajustan al volumen de datos y el tamaño de trama no se aprovecha en todos los enlaces. Cada decisión es razonable en forma aislada, pero la combinación deja capacidad de cómputo esperando datos.
-
 <IndicatorsPanel
-  title="Indicadores"
+  title="Indicadores de Restricción (Snapshot)"
   items={[
     { label: "Utilización de la malla", value: "58%" },
     { label: "Capacidad stranded", value: "14%" },
@@ -31,7 +19,19 @@ El dimensionamiento de la red y del almacenamiento se define por picos teóricos
   ]}
 />
 
+## Qué se observa
+
+Se observan ráfagas de latencia que aparecen durante operaciones de extracción, transformación y carga de datos, mientras el resto del tiempo la red opera con folgura. Enlaces de alta capacidad muestran utilización baja en promedio, pero micro-congestión en momentos puntuales. El almacenamiento reporta discos en buen estado, aunque el rendimiento de entrada y salida queda por debajo de lo esperado por colas de espera mal configuradas.
+
 <ITNetworkLatencyChart />
+
+## Qué cuesta
+
+Cada servidor conectado pero subutilizado representa capacidad de cómputo pagada que no participa en la producción. La congestión de la malla obliga a sobredimensionar enlaces y a mantener nodos de respaldo activos. La ineficiencia se mide en IOPS perdidas, en latencia que se propaga a las aplicaciones y en energía que alimenta equipos cuyo rendimiento está limitado por la red.
+
+## Por qué ocurre
+
+El dimensionamiento de la red y del almacenamiento se define por picos teóricos y no por el perfil real de las cargas. Los protocolos de control de congestión se comportan mal ante ráfagas cortas, las colas por nodo no se ajustan al volumen de datos y el tamaño de trama no se aprovecha en todos los enlaces. Cada decisión es razonable en forma aislada, pero la combinación deja capacidad de cómputo esperando datos.
 
 <ITCapacityBreakdownChart />
 
