@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   ResponsiveContainer,
   BarChart,
@@ -95,6 +96,15 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 };
 
 export default function FacilityThermalChart() {
+  const [isTinyMobile, setIsTinyMobile] = useState(false);
+
+  useEffect(() => {
+    const checkTiny = () => setIsTinyMobile(window.innerWidth <= 340);
+    checkTiny();
+    window.addEventListener("resize", checkTiny);
+    return () => window.removeEventListener("resize", checkTiny);
+  }, []);
+
   return (
     <section style={{ margin: "2.5rem 0" }}>
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -130,6 +140,7 @@ export default function FacilityThermalChart() {
                 tick={{ fill: "#a8afa9", fontSize: 12 }}
                 axisLine={{ stroke: "#2a3830" }}
                 tickLine={false}
+                tickFormatter={(v) => (isTinyMobile ? v.replace("Zona ", "") : v)}
               />
 
               <YAxis
