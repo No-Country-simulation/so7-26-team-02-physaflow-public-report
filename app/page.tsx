@@ -1,6 +1,7 @@
+import CitationBlock from "./components/CitationBlock";
+
 export default function Home() {
   return (
-    // Ajustamos padding horizontal: px-4 para mobile, sm:px-6 para el resto
     <main className="flex min-h-screen w-full justify-center bg-background px-4 py-8 sm:px-6 sm:py-16">
       <article className="flex w-full max-w-3xl flex-col">
         <header className="mb-10 border-b border-border pb-6 sm:mb-12 sm:pb-8">
@@ -31,6 +32,7 @@ export default function Home() {
           </blockquote>
         </section>
 
+        <CitationBlock />
       </article>
     </main>
   );
