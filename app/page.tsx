@@ -16,7 +16,7 @@ export default function Home() {
         </header>
 
         <section className="prose prose-invert lg:prose-lg max-w-none">
-          <h2 className="mt-10 mb-4 border-b border-border pb-2 text-xl font-semibold tracking-tight text-foreground sm:mt-12 sm:text-2xl md:text-3xl">
+          <h2 className="mt-0 mb-4 border-b border-border pb-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl">
             Resumen Ejecutivo
           </h2>
           <p className="mb-6 leading-relaxed text-foreground/90">
