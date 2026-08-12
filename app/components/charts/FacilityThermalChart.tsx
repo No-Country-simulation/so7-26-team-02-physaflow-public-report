@@ -11,6 +11,8 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
 
 const data = [
   { zone: "Zona A", thermal: 92, electrical: 78, cooling: 85 },
@@ -97,6 +99,7 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 
 export default function FacilityThermalChart() {
   const [isTinyMobile, setIsTinyMobile] = useState(false);
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkTiny = () => setIsTinyMobile(window.innerWidth <= 340);
@@ -107,7 +110,7 @@ export default function FacilityThermalChart() {
 
   return (
     <section style={{ margin: "2.5rem 0" }}>
-      <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
+      <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }} >
         <span
           style={{
             fontSize: "10px",
@@ -123,6 +126,7 @@ export default function FacilityThermalChart() {
       </div>
 
       <div
+        ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
@@ -179,6 +183,7 @@ export default function FacilityThermalChart() {
             </BarChart>
           </ResponsiveContainer>
         </div>
+        <DownloadChartButton chartRef={chartRef} /> 
       </div>
     </section>
   );

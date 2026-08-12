@@ -9,6 +9,8 @@ import {
     Tooltip,
     CartesianGrid
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
 
 const data = [
     {
@@ -26,8 +28,9 @@ const data = [
 ];
 
 export default function CapacityBarChart() {
+    const chartRef = useRef<HTMLDivElement>(null);
     return (
-        <div className="h-96 w-full">
+        <div className="h-96 w-full" ref={chartRef}>
             <ResponsiveContainer>
                 <BarChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -44,6 +47,7 @@ export default function CapacityBarChart() {
                     />
                 </BarChart>
             </ResponsiveContainer>
+            <DownloadChartButton chartRef={chartRef} />         
         </div>
     );
 }

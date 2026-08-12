@@ -12,6 +12,8 @@ import {
   Legend,
   ReferenceArea,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
 
 const data = [
   { hour: "00:00", latency: 2.1, throughput: 12 },
@@ -111,6 +113,7 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 
 export default function ITNetworkLatencyChart() {
   const [isMobile, setIsMobile] = useState(false);
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 480);
@@ -137,6 +140,7 @@ export default function ITNetworkLatencyChart() {
       </div>
 
       <div
+        ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
@@ -219,6 +223,7 @@ export default function ITNetworkLatencyChart() {
             Ventanas ETL
           </span>
         </div>
+        <DownloadChartButton chartRef={chartRef}/>
       </div>
     </section>
   );

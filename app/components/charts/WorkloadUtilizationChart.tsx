@@ -10,6 +10,8 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
 
 const data = [
   { hour: "00:00", utilization: 32 },
@@ -72,6 +74,7 @@ const CustomTooltip = ({
 
 export default function WorkloadUtilizationChart() {
   const [isMobile, setIsMobile] = useState(false);
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 480);
@@ -98,6 +101,7 @@ export default function WorkloadUtilizationChart() {
       </div>
 
       <div
+      ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
@@ -154,6 +158,7 @@ export default function WorkloadUtilizationChart() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
+        <DownloadChartButton chartRef={chartRef}/>
       </div>
     </section>
   );
