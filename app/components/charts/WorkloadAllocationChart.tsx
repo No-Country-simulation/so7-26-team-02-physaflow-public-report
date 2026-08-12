@@ -11,6 +11,9 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
+
 
 const data = [
   { period: "Mañana", batch: 28, realtime: 22, reserve: 6, idle: 44 },
@@ -104,6 +107,7 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 
 export default function WorkloadAllocationChart() {
   const [isTinyMobile, setIsTinyMobile] = useState(false);
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkTiny = () => setIsTinyMobile(window.innerWidth <= 340);
@@ -130,6 +134,7 @@ export default function WorkloadAllocationChart() {
       </div>
 
       <div
+        ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
@@ -195,6 +200,7 @@ export default function WorkloadAllocationChart() {
             </BarChart>
           </ResponsiveContainer>
         </div>
+        <DownloadChartButton chartRef={chartRef}/>
       </div>
     </section>
   );

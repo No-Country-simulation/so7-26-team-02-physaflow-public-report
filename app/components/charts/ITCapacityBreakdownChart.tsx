@@ -10,6 +10,8 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
 
 const data = [
   { resource: "Network Links", utilized: 58, stranded: 14, unusable: 9, available: 19 },
@@ -95,6 +97,8 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 };
 
 export default function ITCapacityBreakdownChart() {
+  const chartRef = useRef<HTMLDivElement>(null);
+
   return (
     <section style={{ margin: "2.5rem 0" }}>
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -113,6 +117,7 @@ export default function ITCapacityBreakdownChart() {
       </div>
 
       <div
+      ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
@@ -183,6 +188,7 @@ export default function ITCapacityBreakdownChart() {
             </BarChart>
           </ResponsiveContainer>
         </div>
+        <DownloadChartButton chartRef={chartRef}/>
       </div>
     </section>
   );
