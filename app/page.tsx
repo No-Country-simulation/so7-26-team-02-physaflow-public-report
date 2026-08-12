@@ -1,5 +1,3 @@
-import CitationBlock from "./components/CitationBlock";
-
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full justify-center bg-background px-4 py-8 sm:px-6 sm:py-16">
@@ -31,8 +29,6 @@ export default function Home() {
             Illustrative data — not based on measured PhysaFlow results. Este reporte utiliza métricas de ejemplo para demostrar la estructura de la taxonomía.
           </blockquote>
         </section>
-
-        <CitationBlock />
       </article>
     </main>
   );
