@@ -149,8 +149,8 @@ export default function ITNetworkLatencyChart() {
             <LineChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid stroke="#2a3830" strokeDasharray="3 3" vertical={false} />
 
-              <ReferenceArea x1="03:00" x2="05:00" fill="#c9a227" fillOpacity={0.06} />
-              <ReferenceArea x1="15:00" x2="17:00" fill="#c9a227" fillOpacity={0.06} />
+              <ReferenceArea yAxisId="latency" x1="03:00" x2="05:00" fill="#c9a227" fillOpacity={0.15} />
+              <ReferenceArea yAxisId="latency" x1="15:00" x2="17:00" fill="#c9a227" fillOpacity={0.15} />
 
               <XAxis
                 dataKey="hour"
@@ -215,7 +215,7 @@ export default function ITNetworkLatencyChart() {
 
         <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginTop: "12px", flexWrap: "wrap" }}>
           <span style={{ fontSize: "10px", color: "#a8afa9", display: "flex", alignItems: "center", gap: "4px" }}>
-            <span style={{ width: "20px", height: "8px", background: "rgba(201,162,39,0.12)", borderRadius: "2px", display: "inline-block" }} />
+            <span style={{ width: "20px", height: "8px", background: "rgba(201,162,39,0.5)", borderRadius: "2px", display: "inline-block" }} />
             Ventanas ETL
           </span>
         </div>
