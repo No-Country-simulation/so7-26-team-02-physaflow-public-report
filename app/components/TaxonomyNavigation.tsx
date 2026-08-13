@@ -21,6 +21,7 @@ type NavTarget = {
   href: string;
   label: string;
   shortLabel: string;
+  badgeLabel?: string;
   subtitle: string;
   icon: typeof Building2;
 };
@@ -40,13 +41,15 @@ const navigationMap: Record<string, NavEntry> = {
       href: "/taxonomy",
       label: "Taxonomy",
       shortLabel: "Taxonomía",
-      subtitle: "Volver al índice general de capas",
+      badgeLabel: "Volver a Taxonomía",
+      subtitle: "Índice y visión general de las 3 capas",
       icon: Network,
     },
     next: {
       href: "/taxonomy/it",
       label: "IT — Red y Almacenamiento",
       shortLabel: "IT",
+      badgeLabel: "Siguiente Capa",
       subtitle: "Red, almacenamiento y cuellos de botella en la malla",
       icon: Server,
     },
@@ -57,6 +60,7 @@ const navigationMap: Record<string, NavEntry> = {
       href: "/taxonomy/facility",
       label: "Facility — Energía y Enfriamiento",
       shortLabel: "Facility",
+      badgeLabel: "Capa Anterior",
       subtitle: "Capacidad eléctrica y térmica instalada",
       icon: Building2,
     },
@@ -64,6 +68,7 @@ const navigationMap: Record<string, NavEntry> = {
       href: "/taxonomy/workload",
       label: "Workload — Orquestación de Cargas",
       shortLabel: "Workload",
+      badgeLabel: "Siguiente Capa",
       subtitle: "Planificación y cómputo ocioso reservado",
       icon: Workflow,
     },
@@ -74,14 +79,16 @@ const navigationMap: Record<string, NavEntry> = {
       href: "/taxonomy/it",
       label: "IT — Red y Almacenamiento",
       shortLabel: "IT",
+      badgeLabel: "Capa Anterior",
       subtitle: "Red, almacenamiento y cuellos de botella en la malla",
       icon: Server,
     },
     next: {
       href: "/evidence",
-      label: "Evidence",
+      label: "Evidence — Datos y Casos",
       shortLabel: "Evidencia",
-      subtitle: "Datos, referencias y fuentes del estudio",
+      badgeLabel: "Siguiente Sección",
+      subtitle: "Pasar a la siguiente página del reporte: Evidencia",
       icon: Quote,
     },
   },
@@ -172,7 +179,7 @@ export function TaxonomyHeaderNav({ currentSlug }: TaxonomyNavProps) {
 /* ------------------------------------------------------------------ */
 
 /**
- * Bottom navigation block with equal-size prev/next cards.
+ * Bottom navigation block with perfectly aligned, equal-height prev/next cards.
  */
 export default function TaxonomyNavigation({ currentSlug }: TaxonomyNavProps) {
   const entry = navigationMap[currentSlug];
@@ -193,7 +200,7 @@ export default function TaxonomyNavigation({ currentSlug }: TaxonomyNavProps) {
         <span aria-hidden="true" className="h-px flex-1 bg-border/80" />
       </div>
 
-      {/* Cards grid — always 2 cols on md+, equal height */}
+      {/* Cards grid — always 2 cols on md+, perfectly aligned */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {/* Previous card or empty placeholder for alignment */}
         {prev ? (
@@ -214,7 +221,7 @@ export default function TaxonomyNavigation({ currentSlug }: TaxonomyNavProps) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  NavCard — equal-size card subcomponent                             */
+/*  NavCard — equal-size, leveled card subcomponent                   */
 /* ------------------------------------------------------------------ */
 
 function NavCard({
@@ -226,13 +233,12 @@ function NavCard({
 }) {
   const Icon = target.icon;
   const isPrev = direction === "prev";
+  const badge = target.badgeLabel ?? (isPrev ? "Anterior" : "Siguiente");
 
   return (
     <Link
       href={target.href}
-      className={`group relative flex min-h-[120px] overflow-hidden rounded-xl border border-border bg-gradient-to-b from-surface to-surface/80 p-5 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:shadow-[0_8px_30px_rgba(201,162,39,0.08)] ${
-        isPrev ? "text-left" : "text-right"
-      }`}
+      className="group relative flex min-h-[136px] flex-col justify-between overflow-hidden rounded-xl border border-border bg-gradient-to-b from-surface to-surface/80 p-5 transition-all duration-300 hover:border-accent/50 hover:bg-surface hover:shadow-[0_8px_30px_rgba(201,162,39,0.08)]"
     >
       {/* Top accent highlight */}
       <span
@@ -244,40 +250,39 @@ function NavCard({
         } opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
       />
 
+      {/* Top row: Label badge + Icon (level on both cards) */}
       <div
-        className={`flex w-full items-center gap-4 ${
+        className={`flex items-center justify-between gap-3 ${
           isPrev ? "flex-row" : "flex-row-reverse"
         }`}
       >
-        {/* Icon */}
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background/80 text-accent transition-all duration-300 group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:scale-105 shadow-inner">
-          <Icon className="h-5 w-5" />
+        <div
+          className={`flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-muted transition-colors group-hover:text-accent/90 ${
+            isPrev ? "flex-row" : "flex-row-reverse"
+          }`}
+        >
+          {isPrev ? (
+            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
+          ) : (
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+          )}
+          <span>{badge}</span>
+        </div>
+
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-background/80 text-accent transition-all duration-300 group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:scale-105 shadow-inner">
+          <Icon className="h-4.5 w-4.5" />
+        </span>
+      </div>
+
+      {/* Bottom row: Title and subtitle (level baseline) */}
+      <div className={`mt-3 ${isPrev ? "text-left" : "text-right"}`}>
+        <span className="block text-base font-bold tracking-tight text-foreground transition-colors duration-300 group-hover:text-accent sm:text-lg">
+          {target.label}
         </span>
 
-        {/* Text */}
-        <div className="min-w-0 flex-1">
-          <div
-            className={`flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-muted transition-colors group-hover:text-accent/90 ${
-              isPrev ? "justify-start" : "justify-end"
-            }`}
-          >
-            {isPrev && (
-              <ArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-1" />
-            )}
-            <span>{isPrev ? "Anterior" : "Siguiente"}</span>
-            {!isPrev && (
-              <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-            )}
-          </div>
-
-          <span className="mt-1 block text-base font-bold tracking-tight text-foreground transition-colors duration-300 group-hover:text-accent sm:text-lg">
-            {target.label}
-          </span>
-
-          <span className="mt-1 line-clamp-1 block text-xs leading-relaxed text-muted transition-colors group-hover:text-foreground/80">
-            {target.subtitle}
-          </span>
-        </div>
+        <span className="mt-1 line-clamp-1 block text-xs leading-relaxed text-muted transition-colors group-hover:text-foreground/80">
+          {target.subtitle}
+        </span>
       </div>
     </Link>
   );
