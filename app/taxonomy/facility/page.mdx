@@ -1,4 +1,6 @@
 import IndicatorsPanel from "../../components/IndicatorsPanel.tsx";
+import FacilityPowerChart from "../../components/charts/FacilityPowerChart.tsx";
+import FacilityThermalChart from "../../components/charts/FacilityThermalChart.tsx";
 
 # Facility — Energía y Enfriamiento
 
@@ -6,9 +8,22 @@ import IndicatorsPanel from "../../components/IndicatorsPanel.tsx";
 
 La capa Facility concentra la capacidad eléctrica y térmica instalada en el data center. Describe la parte de esa infraestructura que está pagada y encendida, pero no puede entregar trabajo computacional. Las restricciones suelen aparecer en la distribución de energía y en los límites de enfriamiento, no en la disponibilidad física de los equipos.
 
+<IndicatorsPanel
+  title="Indicadores de Restricción (Snapshot)"
+  items={[
+    { label: "Capacidad instalada", value: "10 MW" },
+    { label: "Capacidad utilizable", value: "8.2 MW" },
+    { label: "Capacidad stranded", value: "18%" },
+    { label: "Utilización", value: "64%" },
+    { label: "Tiempo bajo restricción", value: "8 horas" },
+  ]}
+/>
+
 ## Qué se observa
 
 En el piso del data center se observan zonas que alcanzan su límite térmico mientras otras mantienen margen disponible. Los operadores no pueden aumentar la carga de racks energizados porque superarían las temperaturas de operación. En la distribución eléctrica aparecen pérdidas entre el transformador y las regletas PDU, y hay circuitos alimentados que sostienen carga mínima durante todo el día. La capacidad existe, pero no es posible usarla de forma segura ni productiva.
+
+<FacilityPowerChart />
 
 ## Qué cuesta
 
@@ -18,15 +33,6 @@ Cada megavatio que permanece energizado sin producir trabajo computacional sigue
 
 La distribución de energía y enfriamiento se diseñó para un escenario de densidad promedio que ya no coincide con la carga actual. Los pasillos de alta densidad concentran calor en puntos específicos, mientras el sistema de enfriamiento reparte su capacidad de forma uniforme. Los contratos eléctricos y los diseños de redundancia fijan límites por circuito que no se ajustan a la demanda real, y el balanceo de fase se planifica sin retroalimentación desde la capa de cómputo.
 
-<IndicatorsPanel
-  title="Indicadores"
-  items={[
-    { label: "Capacidad instalada", value: "10 MW" },
-    { label: "Capacidad utilizable", value: "8.2 MW" },
-    { label: "Capacidad stranded", value: "18%" },
-    { label: "Utilización", value: "64%" },
-    { label: "Tiempo bajo restricción", value: "8 horas" },
-  ]}
-/>
+<FacilityThermalChart />
 
 > Illustrative data — not based on measured PhysaFlow results.
