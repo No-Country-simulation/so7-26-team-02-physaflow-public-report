@@ -1,8 +1,8 @@
 "use client";
 
 import type { RefObject } from "react";
-import { Download } from "lucide-react";
 import { toPng } from "html-to-image";
+import { Download } from 'lucide-react';
 
 interface DownloadChartButtonProps {
   chartRef: RefObject<HTMLDivElement | null>;
