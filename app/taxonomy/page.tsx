@@ -42,7 +42,7 @@ export default function TaxonomyPage() {
           <li key={layer.slug}>
             <Link
               href={taxonomyPath(layer.slug)}
-              className="block border border-border bg-surface p-6 transition-colors hover:border-primary"
+              className="block border border-border bg-surface p-6 transition-colors hover:border-accent"
             >
               <span className="block text-lg font-semibold text-accent">
                 {layer.navLabel}
