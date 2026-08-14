@@ -11,7 +11,7 @@ export default function TaxonomyPage() {
   const layers = getTaxonomyLayers();
 
   return (
-    <article className="prose prose-invert mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <article className="prose prose-invert mx-auto max-w-3xl py-12">
       <h1>Taxonomy</h1>
       <p>
         Stranded capacity aparece en tres capas distintas del data center.

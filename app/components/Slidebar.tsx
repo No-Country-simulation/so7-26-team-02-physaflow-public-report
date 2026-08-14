@@ -63,10 +63,49 @@ const pathname = usePathname();
 
 const [isOpen, setIsOpen] = useState(true);
 const [isMobileOpen, setIsMobileOpen] = useState(false);
+const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
 useEffect(() => {
     setIsMobileOpen(false);
+    setIsHeaderVisible(true);
 }, [pathname]);
+
+// El scroll en esta app ocurre dentro de #app-scroll-container (el <main>
+// del layout), NO en el window. Oculta el header fijo al scrollear hacia
+// abajo y lo muestra al scrollear hacia arriba (solo aplica en mobile,
+// donde ese header es fixed; en md+ no se renderiza).
+useEffect(() => {
+    const scroller = document.getElementById("app-scroll-container");
+    if (!scroller) return;
+
+    let lastScrollY = scroller.scrollTop;
+    let ticking = false;
+
+    const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const currentScrollY = scroller.scrollTop;
+            const delta = currentScrollY - lastScrollY;
+
+            if (delta > 8 && currentScrollY > 120) {
+                // Scroll hacia abajo: ocultar. Umbral de 120px para no
+                // esconder el header justo arriba de todo.
+                setIsHeaderVisible(false);
+            } else if (delta < -12) {
+                // Scroll hacia arriba: mostrarlo. Umbral más exigente para
+                // que el gesto sea un poco más decidido que el de ocultar.
+                setIsHeaderVisible(true);
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+        });
+    };
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    return () => scroller.removeEventListener("scroll", onScroll);
+}, []);
 
 const renderNavigation = (collapsed = false) => (
     <nav aria-label="Main navigation">
@@ -169,7 +208,11 @@ return (
         </aside>
 
         <div className="md:hidden">
-            <header className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border bg-background px-4 py-3">
+            <header
+                className={`fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border bg-background px-4 py-3 transition-transform duration-300 ${
+                    isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+                }`}
+            >
                 <h1 className="text-xl font-extrabold tracking-tight text-foreground">
                     PHYSA<span className="text-accent">
                         FLOW
