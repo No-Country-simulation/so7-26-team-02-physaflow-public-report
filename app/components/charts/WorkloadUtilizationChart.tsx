@@ -89,7 +89,7 @@ export default function WorkloadUtilizationChart() {
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "0.1em",
-            color: "#4a9e6d",
+            color: "#c9a227",
           }}
         >
           Perfil de Utilización de Cómputo — 24h
