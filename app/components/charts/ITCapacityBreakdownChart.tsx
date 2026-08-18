@@ -123,6 +123,7 @@ export default function ITCapacityBreakdownChart() {
           border: "1px solid #2a3830",
           borderRadius: "12px",
           padding: "24px 16px 16px",
+          position: "relative",
         }}
       >
         <div style={{ width: "100%", height: "300px" }}>
@@ -188,7 +189,7 @@ export default function ITCapacityBreakdownChart() {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <DownloadChartButton chartRef={chartRef}/>
+        <DownloadChartButton chartRef={chartRef} title="IT capacity - Desglose de Capacidad IT "/>
       </div>
     </section>
   );

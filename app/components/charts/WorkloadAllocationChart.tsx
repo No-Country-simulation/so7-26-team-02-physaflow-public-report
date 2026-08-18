@@ -140,6 +140,7 @@ export default function WorkloadAllocationChart() {
           border: "1px solid #2a3830",
           borderRadius: "12px",
           padding: "24px 16px 16px",
+          position: "relative",
         }}
       >
         <div style={{ width: "100%", height: "320px" }}>
@@ -200,7 +201,7 @@ export default function WorkloadAllocationChart() {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <DownloadChartButton chartRef={chartRef}/>
+        <DownloadChartButton chartRef={chartRef} title="Workload - Distribución de Cargas por Franja"/>
       </div>
     </section>
   );

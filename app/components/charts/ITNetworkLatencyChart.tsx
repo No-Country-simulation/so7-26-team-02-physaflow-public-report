@@ -146,6 +146,7 @@ export default function ITNetworkLatencyChart() {
           border: "1px solid #2a3830",
           borderRadius: "12px",
           padding: "24px 16px 16px",
+          position: "relative",
         }}
       >
         <div style={{ width: "100%", height: "320px" }}>
@@ -223,7 +224,7 @@ export default function ITNetworkLatencyChart() {
             Ventanas ETL
           </span>
         </div>
-        <DownloadChartButton chartRef={chartRef}/>
+        <DownloadChartButton chartRef={chartRef} title="IT Network - Latencia y Throughput de Red — 24h"/>
       </div>
     </section>
   );

@@ -1,56 +1,150 @@
 "use client";
 
-import type { RefObject } from "react";
-import { toPng } from "html-to-image";
-import { Download } from 'lucide-react';
+import { Download } from "lucide-react";
+import { RefObject, useState } from "react";
+import { toPng, toSvg } from "html-to-image";
 
 interface DownloadChartButtonProps {
   chartRef: RefObject<HTMLDivElement | null>;
-  fileName?: string;
-  backgroundColor?: string;
+  title: string;
+  format?: "png" | "svg";
+}
+
+const ATTRIBUTION = "PhysaFlow Report";
+
+const DISCLAIMER =
+  "Illustrative data — not based on measured PhysaFlow results.";
+
+const EXPORT_BACKGROUND = "#0B1F16";
+
+function sanitizeFileName(title: string) {
+  return title
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase();
+}
+
+function getTimestamp() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+
+  return `${year}-${month}-${day}_${hours}h${minutes}m${seconds}s`;
+}
+
+function downloadDataUrl(dataUrl: string, fileName: string) {
+  const link = document.createElement("a");
+
+  link.href = dataUrl;
+  link.download = fileName;
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 }
 
 export default function DownloadChartButton({
   chartRef,
-  fileName = "chart",
-  backgroundColor = "#14291e",
+  title,
+  format = "png",
 }: DownloadChartButtonProps) {
-  const handleDownload = async () => {
-    const chart = chartRef.current;
+  const [isDownloading, setIsDownloading] = useState(false);
 
-    if (!chart) {
-      console.error("No se encontró el gráfico");
+  const handleDownload = async () => {
+    const element = chartRef.current;
+
+    if (!element || !title || isDownloading) {
       return;
     }
 
-    const footer = document.createElement("div");
-    footer.style.cssText = `
-      padding: 12px 16px 4px 16px;
-      border-top: 1px solid #2a3830;
-      margin-top: 8px;
-      font: 10px Arial, sans-serif;
-      color: #a8afa9;
-    `;
-    footer.textContent = "PhysaFlow | Stranded Capacity Report | Source: PhysaFlow";
-    chart.appendChild(footer);
+    let titleElement: HTMLDivElement | null = null;
+    let footerElement: HTMLDivElement | null = null;
 
     try {
-      const dataUrl = await toPng(chart, {
-        backgroundColor,
-        pixelRatio: 2, 
-        cacheBust: true,
+      setIsDownloading(true);
+
+      titleElement = document.createElement("div");
+
+      titleElement.textContent = title;
+
+      titleElement.style.color = "#F5F3EE";
+      titleElement.style.fontFamily = "Arial, sans-serif";
+      titleElement.style.fontSize = "22px";
+      titleElement.style.fontWeight = "600";
+      titleElement.style.lineHeight = "1.3";
+      titleElement.style.marginBottom = "20px";
+
+      footerElement = document.createElement("div");
+
+      footerElement.style.color = "#A8AFA9";
+      footerElement.style.fontFamily = "Arial, sans-serif";
+      footerElement.style.fontSize = "12px";
+      footerElement.style.lineHeight = "1.5";
+      footerElement.style.marginTop = "20px";
+
+      const attributionElement = document.createElement("div");
+      attributionElement.textContent = ATTRIBUTION;
+
+      const disclaimerElement = document.createElement("div");
+      disclaimerElement.textContent = DISCLAIMER;
+
+      footerElement.appendChild(attributionElement);
+      footerElement.appendChild(disclaimerElement);
+
+      element.prepend(titleElement);
+      element.appendChild(footerElement);
+
+      const fileName = `${sanitizeFileName(title)}_${getTimestamp()}`;
+
+      await new Promise<void>((resolve) => {
+        requestAnimationFrame(() => resolve());
       });
 
-      const link = document.createElement("a");
-      link.href = dataUrl;
-      link.download = `${fileName}.png`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (err) {
-      console.error("No se pudo generar la imagen", err);
+      if (format === "svg") {
+        const dataUrl = await toSvg(element, {
+          cacheBust: true,
+          backgroundColor: EXPORT_BACKGROUND,
+          filter: (node) => {
+            if (!(node instanceof HTMLElement)) {
+              return true;
+            }
+
+            return !node.hasAttribute("data-chart-download-button");
+          },
+        });
+
+        downloadDataUrl(dataUrl, `${fileName}.svg`);
+      } else {
+        const dataUrl = await toPng(element, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: EXPORT_BACKGROUND,
+          filter: (node) => {
+            if (!(node instanceof HTMLElement)) {
+              return true;
+            }
+
+            return !node.hasAttribute("data-chart-download-button");
+          },
+        });
+
+        downloadDataUrl(dataUrl, `${fileName}.png`);
+      }
+    } catch (error) {
+      console.error("Error exporting chart:", error);
     } finally {
-      chart.removeChild(footer);
+      titleElement?.remove();
+      footerElement?.remove();
+
+      setIsDownloading(false);
     }
   };
 
@@ -58,10 +152,44 @@ export default function DownloadChartButton({
     <button
       type="button"
       onClick={handleDownload}
-      className="flex items-center gap-2 rounded-full bg-accent px-3 py-2.5 font-medium text-background transition-colors hover:bg-accent-light sm:px-4"
+      disabled={isDownloading}
+      data-chart-download-button
+      aria-label={isDownloading ? "Exporting chart" : "Download chart"}
+      title={isDownloading ? "Exporting..." : "Download chart"}
+      className="
+        absolute
+        right-4
+        top-4
+        z-10
+        flex
+        items-center
+        justify-center
+        gap-2
+        rounded-full
+        bg-accent
+        px-2.5
+        py-2
+        text-sm
+        font-medium
+        text-background
+        shadow-sm
+        transition-all
+        duration-200
+        hover:bg-accent-light
+        hover:shadow-md
+        disabled:cursor-not-allowed
+        disabled:opacity-60
+        sm:bottom-4
+        sm:top-auto
+        sm:px-4
+        sm:py-2
+      "
     >
-      <Download size={18} />
-      <span className="hidden sm:inline">Download</span>
+      <Download size={17} />
+
+      <span className="hidden sm:inline">
+        {isDownloading ? "Exporting..." : "Download"}
+      </span>
     </button>
   );
 }
