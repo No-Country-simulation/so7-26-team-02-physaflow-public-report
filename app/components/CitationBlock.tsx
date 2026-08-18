@@ -105,15 +105,15 @@ export default function CitationBlock(props: CitationBlockProps) {
   return (
     <section
       aria-labelledby="citation-heading"
-      className="mt-14 border-t border-border pt-10"
+      className="my-10"
     >
       <div className="mb-5 flex items-center gap-4">
-        <h2
+        <span
           id="citation-heading"
           className="text-xs font-medium uppercase tracking-widest text-accent"
         >
           Cómo citar este reporte
-        </h2>
+        </span>
         <span aria-hidden="true" className="h-px flex-1 bg-border" />
       </div>
 
