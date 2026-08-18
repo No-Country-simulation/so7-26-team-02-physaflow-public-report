@@ -1,7 +1,6 @@
 export default function Home() {
   return (
-    // El gutter horizontal (px) lo aporta el <main> del layout.
-    <main className="flex min-h-screen w-full justify-center bg-background py-8 sm:py-16">
+    <main className="flex min-h-screen w-full justify-center bg-background px-4 py-8 sm:px-6 sm:py-16">
       <article className="flex w-full max-w-3xl flex-col">
         <header className="mb-10 border-b border-border pb-6 sm:mb-12 sm:pb-8">
           <p className="mb-2 text-xs font-medium uppercase tracking-widest text-accent sm:text-sm">
@@ -30,7 +29,6 @@ export default function Home() {
             Illustrative data — not based on measured PhysaFlow results. Este reporte utiliza métricas de ejemplo para demostrar la estructura de la taxonomía.
           </blockquote>
         </section>
-
       </article>
     </main>
   );
