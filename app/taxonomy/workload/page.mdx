@@ -1,6 +1,9 @@
 import IndicatorsPanel from "../../components/IndicatorsPanel.tsx";
 import WorkloadUtilizationChart from "../../components/charts/WorkloadUtilizationChart.tsx";
 import WorkloadAllocationChart from "../../components/charts/WorkloadAllocationChart.tsx";
+import TaxonomyNavigation, { TaxonomyHeaderNav } from "../../components/TaxonomyNavigation.tsx";
+
+<TaxonomyHeaderNav currentSlug="workload" />
 
 # Workload — Orquestación de Cargas
 
@@ -36,3 +39,5 @@ Las cargas se planifican con márgenes de seguridad heredados de cuando la varia
 <WorkloadAllocationChart />
 
 > Illustrative data — not based on measured PhysaFlow results.
+
+<TaxonomyNavigation currentSlug="workload" />
