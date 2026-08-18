@@ -1,0 +1,53 @@
+# Problem
+
+## ¿Qué es la stranded capacity?
+
+La *stranded capacity* se refiere a la capacidad de un data center que ya está instalada, energizada y disponible, pero que no puede utilizarse de manera efectiva para ejecutar trabajo computacional adicional.
+
+El problema no siempre es la falta de recursos físicos. Una instalación puede disponer de energía, cooling, servidores o espacio disponibles, mientras una restricción en otra parte del entorno impide utilizar esa capacidad de forma segura y eficiente.
+
+En la práctica, esto genera una diferencia entre la **capacidad que existe** y la **capacidad que realmente puede utilizarse**.
+
+## ¿Por qué ocurre?
+
+La capacidad de un data center depende de que varias capas funcionen de manera coordinada. La energía y el cooling deben soportar la infraestructura IT, mientras que la infraestructura IT debe poder ejecutar los workloads que generan trabajo útil.
+
+Cuando estas capas no están coordinadas, una de ellas puede convertirse en el factor limitante aunque exista capacidad disponible en las demás.
+
+Por ejemplo, un data center puede disponer de capacidad eléctrica, pero las restricciones de cooling pueden impedir aumentar la carga de determinados servidores. De forma similar, pueden existir servidores instalados y disponibles, pero los workloads pueden no estar distribuidos o programados de manera que permitan aprovechar esa infraestructura.
+
+Esta interacción puede convertir capacidad disponible en capacidad stranded.
+
+
+## La coordinación entre capas
+
+La capacidad de un data center depende de la interacción entre tres capas principales: **Facility, IT y Workload**. Facility proporciona los recursos físicos necesarios, IT utiliza esos recursos para ejecutar infraestructura informática y Workload determina cómo se utiliza esa infraestructura.
+
+Cuando estas capas no están coordinadas, una restricción en cualquiera de ellas puede impedir aprovechar capacidad que permanece disponible en las demás.
+
+Estas tres capas se analizan con mayor detalle en la sección **Taxonomy**, donde se clasifican las diferentes formas en que pueden aparecer estas restricciones.
+
+## La brecha de capacidad
+
+La *stranded capacity* es, por tanto, un problema de coordinación además de un problema de capacidad.
+
+Un recurso puede estar disponible de forma aislada y, sin embargo, permanecer inutilizable dentro del entorno operativo completo. Identificar dónde aparece esta restricción es necesario para comprender qué capacidad puede recuperarse o utilizarse de forma más eficiente.
+
+## Indicadores 
+
+Un escenario hipotético podría mostrar:
+
+- Capacidad instalada: 10 MW
+- Capacidad utilizable: 8.2 MW
+- Capacidad stranded: 18%
+- Tiempo bajo restricción: 8 horas
+
+*Illustrative data — not based on measured PhysaFlow results.*
+
+## ¿Por qué importa?
+
+Identificar la *stranded capacity* permite comprender dónde los recursos disponibles están siendo bloqueados y no pueden convertirse en trabajo computacional útil.
+
+El siguiente paso es clasificar las diferentes formas en que aparecen estas restricciones dentro de las capas **Facility, IT y Workload**. Esta taxonomía proporciona una estructura para analizar cómo cada capa puede contribuir a que una parte de la capacidad permanezca stranded.
+
+> Illustrative data — not based on measured PhysaFlow results.

@@ -1,0 +1,43 @@
+import IndicatorsPanel from "../../components/IndicatorsPanel.tsx";
+import WorkloadUtilizationChart from "../../components/charts/WorkloadUtilizationChart.tsx";
+import WorkloadAllocationChart from "../../components/charts/WorkloadAllocationChart.tsx";
+import TaxonomyNavigation, { TaxonomyHeaderNav } from "../../components/TaxonomyNavigation.tsx";
+
+<TaxonomyHeaderNav currentSlug="workload" />
+
+# Workload — Orquestación de Cargas
+
+## Resumen
+
+La capa Workload se refiere a cómo se asignan y ejecutan las cargas de trabajo sobre la capacidad disponible. La capacidad varada aparece cuando el planificador no logra ocupar los recursos que la infraestructura ya entregó: núcleos reservados que esperan tareas, máquinas virtuales inactivas y ventanas de procesamiento desaprovechadas.
+
+<IndicatorsPanel
+  title="Indicadores de Restricción (Snapshot)"
+  items={[
+    { label: "Utilización de cómputo", value: "47%" },
+    { label: "Capacidad stranded", value: "22%" },
+    { label: "Capacidad no utilizable", value: "6%" },
+    { label: "Impacto en eficiencia", value: "11%" },
+    { label: "Tiempo bajo restricción", value: "12 horas" },
+  ]}
+/>
+
+## Qué se observa
+
+Los recursos de cómputo muestran picos de uso en horarios específicos y largos periodos de ocio entre cargas. Hay núcleos reservados que permanecen sin tareas asignadas, trabajos por lotes que compiten por los mismos recursos y una reserva de seguridad que queda encendida todo el tiempo. La utilización promedio se mantiene baja, aunque los equipos están disponibles y energizados para atender la demanda.
+
+<WorkloadUtilizationChart />
+
+## Qué cuesta
+
+El costo no está en los servidores, que de todos modos se pagan, sino en la energía que consumen encendidos y en la capacidad de cómputo que no se convierte en resultados. Las ventanas de procesamiento desaprovechadas retrasan entregas y obligan a adquirir más capacidad de la necesaria, mientras la energía sigue fluyendo hacia recursos que no producen.
+
+## Por qué ocurre
+
+Las cargas se planifican con márgenes de seguridad heredados de cuando la variabilidad era mayor, y los trabajos por lotes se lanzan en ventanas fijas sin considerar la capacidad ociosa. La reserva de seguridad se mantiene constante sin importar la demanda real, y las políticas de asignación no distinguen entre prioridades críticas y trabajos diferibles. El resultado es una infraestructura dimensionada para el peor caso, ocupada solo en momentos puntuales.
+
+<WorkloadAllocationChart />
+
+> Illustrative data — not based on measured PhysaFlow results.
+
+<TaxonomyNavigation currentSlug="workload" />
