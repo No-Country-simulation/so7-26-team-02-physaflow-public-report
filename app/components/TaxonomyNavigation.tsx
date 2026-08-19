@@ -113,7 +113,7 @@ export function TaxonomyHeaderNav({ currentSlug }: TaxonomyNavProps) {
   const { step, prev, next } = entry;
 
   return (
-    <div className="not-prose mb-8 flex items-center justify-between border-b border-border/50 pb-3 pt-1">
+    <div className="not-prose -mt-[46px] mb-[10px] flex items-center justify-between border-b border-border/50 pb-2 sm:-mt-[56px] sm:mb-5 md:-mt-16 md:mb-7">
       {/* Left arrow */}
       {prev ? (
         <Link
@@ -161,7 +161,7 @@ export function TaxonomyHeaderNav({ currentSlug }: TaxonomyNavProps) {
         <Link
           href={next.href}
           title={`Siguiente: ${next.label}`}
-          className="group flex h-8 w-8 items-center justify-center rounded-md border border-accent/30 bg-accent/10 text-accent transition-all hover:border-accent/60 hover:bg-accent/20 active:scale-95"
+          className="group flex h-8 w-8 items-center justify-center rounded-md border border-border bg-surface text-muted transition-all hover:border-accent/40 hover:bg-accent/10 hover:text-accent active:scale-95"
         >
           <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
