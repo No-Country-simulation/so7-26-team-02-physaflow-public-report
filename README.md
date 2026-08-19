@@ -1,7 +1,6 @@
 <div align="center">
-![PhysaFlow — Stranded Capacity Report](./assets/logo-dark.svg#gh-dark-mode-only)
-![PhysaFlow — Stranded Capacity Report](./assets/logo-light.svg#gh-light-mode-only)
- 
+<picture> <source media="(prefers-color-scheme: dark)" srcset="./assets/logo-dark.svg"> <source media="(prefers-color-scheme: light)" srcset="./assets/logo-light.svg"> <img alt="PhysaFlow — Stranded Capacity Report" src="./assets/logo-dark.svg" width="380"> </picture>
+
 <br><br>
  
 **Un reporte de referencia de la industria que define el vocabulario operativo para identificar y medir la capacidad pagada y encendida que no produce trabajo computacional en data centers de IA.**
