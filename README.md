@@ -67,37 +67,39 @@ El objetivo es proveer a operadores y stakeholders un lenguaje común y métrica
 
 ## 🧰 Stack tecnológico
 
-- **Framework:** React / Next.js
-- **Estilos:** _(completar: Tailwind CSS, CSS Modules, styled-components, etc.)_
+- **Framework:** Next.js (App Router) + TypeScript
+- **Contenido:** MDX (`mdx-components.tsx`)
+- **Gestor de paquetes:** pnpm (monorepo con `pnpm-workspace.yaml`)
+- **Estilos:** PostCSS
 - **Despliegue:** _(completar: Vercel, Netlify, etc.)_
 
 ## ✅ Requisitos previos
 
 - Node.js `>= 18.x`
-- npm, yarn o pnpm
+- pnpm
 
 ## 🚀 Instalación
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/<usuario>/physaflow-stranded-capacity-report.git
-cd physaflow-stranded-capacity-report
+git clone https://github.com/<usuario>/physaflow-public-report.git
+cd physaflow-public-report
 
 # Instalar dependencias
-npm install
+pnpm install
 ```
 
 ## ▶️ Uso
 
 ```bash
 # Entorno de desarrollo
-npm run dev
+pnpm dev
 
 # Build de producción
-npm run build
+pnpm build
 
 # Levantar build de producción
-npm start
+pnpm start
 ```
 
 La app quedará disponible en `http://localhost:3000`.
@@ -118,28 +120,38 @@ cp .env.example .env.local
 ## 📁 Estructura del proyecto
 
 ```
-physaflow-stranded-capacity-report/
-├── app/                # Rutas y páginas (Next.js App Router)
-│   ├── overview/
-│   ├── problem/
-│   ├── taxonomy/
-│   ├── facility/
-│   ├── it/
-│   ├── workload/
-│   ├── evidence/
-│   └── citations/
-├── components/         # Componentes reutilizables (sidebar, layout, cards)
-├── public/              # Assets estáticos
-├── styles/              # Estilos globales
-├── .env.example
-├── package.json
+physaflow-public-report/
+├── so7-26-team-02-ph.../   # App principal (Next.js)
+│   ├── app/
+│   │   ├── citations/       # Sección Citations (MDX)
+│   │   ├── components/      # Componentes reutilizables (sidebar, layout, cards)
+│   │   ├── evidence/        # Sección Evidence (MDX)
+│   │   ├── problem/         # Sección Problem (MDX)
+│   │   ├── sandbox/         # Entorno de pruebas / prototipos
+│   │   ├── taxonomy/        # Sección Taxonomy (MDX)
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── docs/                 # Documentación adicional del proyecto
+│   ├── public/                # Assets estáticos
+│   ├── .gitignore
+│   ├── CONTRIBUTING.md
+│   ├── eslint.config.mjs
+│   ├── mdx-components.tsx    # Configuración de componentes MDX
+│   ├── next.config.ts
+│   ├── package.json
+│   ├── postcss.config.mjs
+│   ├── tsconfig.json
+│   └── README.md
+├── pnpm-workspace.yaml
 └── README.md
 ```
 
 ## 🧪 Testing
 
 ```bash
-npm run test
+pnpm test
 ```
 
 ## 🌐 Despliegue
