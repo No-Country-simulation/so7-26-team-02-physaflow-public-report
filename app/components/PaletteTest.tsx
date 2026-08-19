@@ -10,11 +10,11 @@ export default function PaletteTest() {
         </p>
   
         <div className="flex gap-3">
-          <button className="px-4 py-2 rounded-lg bg-accent text-background font-medium hover:bg-accent-light transition-colors">
+          <button type="button" className="px-4 py-2 rounded-lg bg-accent text-background font-medium hover:bg-accent-light transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             Primary
           </button>
   
-          <button className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-primary transition-colors">
+          <button type="button" className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             Secondary
           </button>
         </div>

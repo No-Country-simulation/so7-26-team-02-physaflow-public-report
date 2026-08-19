@@ -144,9 +144,9 @@ export default function CitationBlock(props: CitationBlockProps) {
                 }`}
               >
                 {isCopied ? (
-                  <Check className="h-4 w-4" />
+                  <Check className="h-4 w-4" aria-hidden="true" />
                 ) : (
-                  <Copy className="h-4 w-4" />
+                  <Copy className="h-4 w-4" aria-hidden="true" />
                 )}
                 {isCopied ? "Copiado" : "Copiar"}
               </button>

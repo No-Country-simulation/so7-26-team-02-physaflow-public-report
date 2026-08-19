@@ -27,7 +27,7 @@ const data = [
 
 export default function CapacityBarChart() {
     return (
-        <div className="h-96 w-full">
+        <div className="h-96 w-full" role="img" aria-label="Gráfico: Capacidad por capa — Facility 82%, IT 61%, Workload 47%">
             <ResponsiveContainer>
                 <BarChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
