@@ -13,3 +13,19 @@
 [Demo](#-demo) · [Instalación](#-instalación) · [Uso](#️-uso)
  
 </div>
+
+<div align="center">
+Descripción
+
+Stranded Capacity Report es un reporte interactivo desarrollado por PhysaFlow que presenta una taxonomía estandarizada del desperdicio de capacidad ("stranded capacity") en data centers de IA, clasificado en tres capas críticas:
+
+Facility — infraestructura física (energía, refrigeración, espacio)
+IT — capa de hardware/infraestructura de cómputo
+Workload — capa de cargas de trabajo y utilización real
+
+El objetivo es proveer a operadores y stakeholders un lenguaje común y métricas consistentes para diagnosticar dónde se pierde capacidad pagada pero inutilizable, clasificado en tres capas críticas:
+
+<div align="center">
+🏢 Facility	💻 IT	📊 Workload
+Infraestructura física — energía, refrigeración, espacio	Infraestructura de cómputo y hardware	Cargas de trabajo y utilización real
+</div> 
