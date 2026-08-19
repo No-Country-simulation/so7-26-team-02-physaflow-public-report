@@ -1,1 +1,1 @@
-<div align="center"> <img src="./assets/logo.svg" alt="PhysaFlow — Stranded Capacity Report" width="420">
+<div align="center"> <picture> <source media="(prefers-color-scheme: dark)" srcset="./assets/logo-dark.svg"> <source media="(prefers-color-scheme: light)" srcset="./assets/logo-light.svg"> <img alt="PhysaFlow — Stranded Capacity Report" src="./assets/logo-dark.svg" width="380"> </picture>
