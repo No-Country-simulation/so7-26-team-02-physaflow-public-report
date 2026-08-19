@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="w-full">
       <article className="mx-auto flex w-full max-w-3xl flex-col pt-8 pb-16 sm:pt-12 sm:pb-24 md:pt-16 md:pb-32">
-        <header className="mb-10 border-b border-border pb-6 sm:mb-12 sm:pb-8">
+        <header className="mb-8 sm:mb-10">
           <p className="mb-2 text-xs font-medium uppercase tracking-widest text-accent sm:text-sm">
             PhysaFlow Stranded Capacity Index
           </p>
@@ -43,10 +43,6 @@ export default function Home() {
           <p className="mb-6 leading-relaxed text-foreground/90">
             Este reporte presenta una taxonomía estandarizada para clasificar el desperdicio en tres capas críticas: Facility, IT y Workload. El objetivo es proveer a operadores y stakeholders con el vocabulario necesario para diagnosticar estas restricciones de forma precisa.
           </p>
-
-          <blockquote className="my-6 border-l-4 border-accent bg-surface py-2 pl-4 pr-3 text-sm italic text-foreground sm:pl-6 sm:pr-4 sm:text-base">
-            Illustrative data — not based on measured PhysaFlow results. Este reporte utiliza métricas de ejemplo para demostrar la estructura de la taxonomía.
-          </blockquote>
         </section>
       </article>
     </div>

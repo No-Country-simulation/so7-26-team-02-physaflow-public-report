@@ -53,21 +53,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </blockquote>
     ),
 
-    // Tablas de datos (crítico para las métricas en móvil)
+    // Tablas de datos
     table: ({ children }) => (
-      <div className="my-8 overflow-x-auto">
-        <table className="w-full border-collapse text-left text-sm text-foreground/90">
-          {children}
-        </table>
+      <div className="not-prose my-8 overflow-hidden rounded-xl border border-border bg-surface/30">
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-left text-sm text-foreground/90">
+            {children}
+          </table>
+        </div>
       </div>
     ),
     th: ({ children }) => (
-      <th className="border-b border-border bg-primary px-3 py-2 font-semibold text-accent-light sm:px-4 sm:py-3">
+      <th className="border-b border-border bg-surface/80 px-6 py-4 font-semibold text-accent-light">
         {children}
       </th>
     ),
     td: ({ children }) => (
-      <td className="border-b border-border px-3 py-2 sm:px-4 sm:py-3">
+      <td className="border-b border-border/40 px-6 py-4 text-foreground/90">
         {children}
       </td>
     ),
@@ -77,6 +79,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <a href={href} className="text-accent underline decoration-accent/40 underline-offset-2 transition-colors hover:text-accent-light hover:decoration-accent">
         {children}
       </a>
+    ),
+
+    // Separador horizontal
+    hr: () => (
+      <hr className="my-10 border-t border-border" />
     ),
 
     ...components,
