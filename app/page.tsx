@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="w-full">
@@ -13,6 +15,23 @@ export default function Home() {
             Un reporte de referencia de la industria que define el vocabulario operativo para identificar y medir la capacidad pagada y encendida que no produce trabajo computacional.
           </p>
         </header>
+
+        {/* Hero image — reemplazar src cuando la imagen esté lista */}
+        <figure className="not-prose mb-10 overflow-hidden rounded-xl border border-border sm:mb-12">
+          <div className="relative aspect-[16/9] w-full bg-surface">
+            <Image
+              src="/images/hero-datacenter.png"
+              alt="Ilustración conceptual de las tres capas de un data center: Facility, IT y Workload, mostrando la capacidad varada entre ellas"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
+          <figcaption className="border-t border-border bg-surface/50 px-4 py-2.5 text-center text-[11px] uppercase tracking-widest text-muted">
+            Representación conceptual — Tres capas del data center
+          </figcaption>
+        </figure>
 
         <section className="prose prose-invert lg:prose-lg max-w-none">
           <h2 className="mt-0 mb-4 border-b border-border pb-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl">
