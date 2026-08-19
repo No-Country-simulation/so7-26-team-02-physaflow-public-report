@@ -70,8 +70,8 @@ El objetivo es proveer a operadores y stakeholders un lenguaje común y métrica
 - **Framework:** Next.js (App Router) + TypeScript
 - **Contenido:** MDX (`mdx-components.tsx`)
 - **Gestor de paquetes:** pnpm (monorepo con `pnpm-workspace.yaml`)
-- **Estilos:** PostCSS
-- **Despliegue:** _(completar: Vercel, Netlify, etc.)_
+- **Estilos:** TailwindCSS
+- **Despliegue:** Vercel
 
 ## ✅ Requisitos previos
 
