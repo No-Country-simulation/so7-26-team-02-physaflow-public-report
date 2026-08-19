@@ -4,9 +4,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // El contenedor principal de todo el MDX
     wrapper: ({ children }) => (
-      <article className="prose prose-invert lg:prose-xl mx-auto my-8 prose-headings:text-foreground prose-p:text-muted prose-strong:text-accent-light prose-a:text-accent">
-        {children}
-      </article>
+      <div className="w-full">
+        <article className="prose prose-invert lg:prose-lg mx-auto w-full max-w-3xl pt-8 pb-16 sm:pt-12 sm:pb-24 md:pt-16 md:pb-32 prose-headings:text-foreground prose-p:text-muted prose-strong:text-accent-light prose-a:text-accent">
+          {children}
+        </article>
+      </div>
     ),
     
     // Título principal de la sección

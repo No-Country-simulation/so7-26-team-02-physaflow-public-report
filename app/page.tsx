@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full justify-center bg-background px-4 py-8 sm:px-6 sm:py-16">
-      <article className="flex w-full max-w-3xl flex-col">
+    <div className="w-full">
+      <article className="mx-auto flex w-full max-w-3xl flex-col pt-8 pb-16 sm:pt-12 sm:pb-24 md:pt-16 md:pb-32">
         <header className="mb-10 border-b border-border pb-6 sm:mb-12 sm:pb-8">
           <p className="mb-2 text-xs font-medium uppercase tracking-widest text-accent sm:text-sm">
             PhysaFlow Stranded Capacity Index
@@ -30,6 +30,6 @@ export default function Home() {
           </blockquote>
         </section>
       </article>
-    </main>
+    </div>
   );
 }
