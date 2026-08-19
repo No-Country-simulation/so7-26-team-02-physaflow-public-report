@@ -85,7 +85,7 @@ export default function FacilityPowerChart() {
   }, []);
 
   return (
-    <section style={{ margin: "2.5rem 0" }}>
+    <section style={{ margin: "2.5rem 0" }} aria-label="Gráfico: Consumo eléctrico en MW durante 24 horas">
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
         <span
           style={{

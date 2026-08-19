@@ -84,7 +84,7 @@ export default function WorkloadUtilizationChart() {
   }, []);
 
   return (
-    <section style={{ margin: "2.5rem 0" }}>
+    <section style={{ margin: "2.5rem 0" }} aria-label="Gráfico: Perfil de utilización de cómputo durante 24 horas">
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
         <span
           style={{

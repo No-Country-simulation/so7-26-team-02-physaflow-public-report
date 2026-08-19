@@ -30,7 +30,7 @@ const data = [
 export default function CapacityBarChart() {
     const chartRef = useRef<HTMLDivElement>(null);
     return (
-        <div className="h-96 w-full" ref={chartRef}>
+        <div className="h-96 w-full" aria-label="Gráfico: Capacidad por capa — Facility 82%, IT 61%, Workload 47%" ref={chartRef}>
             <ResponsiveContainer>
                 <BarChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />

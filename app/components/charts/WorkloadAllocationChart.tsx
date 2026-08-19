@@ -117,7 +117,7 @@ export default function WorkloadAllocationChart() {
   }, []);
 
   return (
-    <section style={{ margin: "2.5rem 0" }}>
+    <section style={{ margin: "2.5rem 0" }} aria-label="Gráfico: Distribución de cargas por franja horaria">
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
         <span
           style={{

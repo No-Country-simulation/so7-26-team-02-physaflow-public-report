@@ -60,7 +60,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </div>
     ),
     th: ({ children }) => (
-      <th className="border-b border-border bg-primary px-3 py-2 font-semibold text-accent-light sm:px-4 sm:py-3">
+      <th scope="col" className="border-b border-border bg-primary px-3 py-2 font-semibold text-accent-light sm:px-4 sm:py-3">
         {children}
       </th>
     ),
