@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Building2, Server, Workflow, ArrowRight } from "lucide-react";
 import { getTaxonomyLayers, taxonomyPath } from "./layers";
 
@@ -29,6 +30,22 @@ export default function TaxonomyPage() {
         <h1 className="mb-8 mt-0 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
           Taxonomy — Las tres capas
         </h1>
+
+        <figure className="not-prose mb-10 overflow-hidden rounded-xl border border-border sm:mb-12">
+          <div className="relative aspect-[16/9] w-full bg-surface">
+            <Image
+              src="/images/hero-datacenter-v3.png"
+              alt="Ilustración conceptual de las tres capas de un data center"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
+          <figcaption className="border-t border-border bg-surface/50 px-4 py-2.5 text-center text-xs text-muted">
+            <strong className="font-semibold text-accent">Figura 2.</strong> Desglose taxonómico de recursos: Facility, IT y Workload.
+          </figcaption>
+        </figure>
 
         <p>
           La <em>stranded capacity</em> no es un fenómeno homogéneo: aparece en tres capas distintas del data center: <strong>Facility</strong>, <strong>IT</strong> y <strong>Workload</strong>. La taxonomía las separa porque cada una tiene su propia unidad de medida, sus propios responsables y su propia forma de desperdiciar capacidad ya pagada.

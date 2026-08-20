@@ -20,7 +20,7 @@ export default function Home() {
         <figure className="not-prose mb-10 overflow-hidden rounded-xl border border-border sm:mb-12">
           <div className="relative aspect-[16/9] w-full bg-surface">
             <Image
-              src="/images/hero-datacenter-v16.png"
+              src="/images/hero-datacenter-v1.png"
               alt="Ilustración conceptual de las tres capas de un data center: Facility, IT y Workload, mostrando la capacidad varada entre ellas"
               fill
               className="object-cover"
@@ -28,8 +28,8 @@ export default function Home() {
               sizes="(max-width: 768px) 100vw, 768px"
             />
           </div>
-          <figcaption className="border-t border-border bg-surface/50 px-4 py-2.5 text-center text-[11px] uppercase tracking-widest text-muted">
-            Representación conceptual — Tres capas del data center
+          <figcaption className="border-t border-border bg-surface/50 px-4 py-2.5 text-center text-xs text-muted">
+            <strong className="font-semibold text-accent">Figura 1.</strong> Arquitectura de tres capas y focos de capacidad varada en data centers de IA.
           </figcaption>
         </figure>
 
