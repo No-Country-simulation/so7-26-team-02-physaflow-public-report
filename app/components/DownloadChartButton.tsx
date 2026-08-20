@@ -157,7 +157,6 @@ export default function DownloadChartButton({
       aria-label={isDownloading ? "Exporting chart" : "Download chart"}
       title={isDownloading ? "Exporting..." : "Download chart"}
       className="
-        absolute
         right-4
         top-4
         z-10

@@ -111,9 +111,19 @@ export default function FacilityPowerChart() {
           position: "relative",
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginBottom: "0.5px",
+          }}
+        >
+          <DownloadChartButton chartRef={chartRef} title="Facility Power - 24h Electrical Consumption" />
+        </div>
+
         <div style={{ width: "100%", height: "320px" }}>
           <ResponsiveContainer>
-            <AreaChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
+            <AreaChart data={data} margin={{ top: 28, right: 10, left: -10, bottom: 0 }}>
               <defs>
                 <linearGradient id="powerGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#c9a227" stopOpacity={0.35} />
@@ -149,7 +159,7 @@ export default function FacilityPowerChart() {
                 strokeOpacity={0.6}
                 label={{
                   value: "Cap. Instalada 10 MW",
-                  position: "insideTopRight",
+                  position: "insideBottomRight",
                   fill: "#e8d48a",
                   fontSize: 10,
                 }}
@@ -186,7 +196,6 @@ export default function FacilityPowerChart() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <DownloadChartButton chartRef={chartRef} title="Facility Power - 24h Electrical Consumption"/>  
       </div>
     </section>
   );

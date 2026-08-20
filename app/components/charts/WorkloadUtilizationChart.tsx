@@ -110,6 +110,15 @@ export default function WorkloadUtilizationChart() {
           position: "relative",
         }}
       >
+      <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginBottom: "4px",
+          }}
+        >
+           <DownloadChartButton chartRef={chartRef} title="Workload - Perfil de Utilización de Cómputo — 24h"/>
+        </div>
         <div style={{ width: "100%", height: "320px" }}>
           <ResponsiveContainer>
             <AreaChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
@@ -159,7 +168,6 @@ export default function WorkloadUtilizationChart() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <DownloadChartButton chartRef={chartRef} title="Workload - Perfil de Utilización de Cómputo — 24h"/>
       </div>
     </section>
   );

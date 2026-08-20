@@ -46,8 +46,7 @@ export default function CapacityBarChart() {
                         radius={[6,6,0,0]}
                     />
                 </BarChart>
-            </ResponsiveContainer>
-            <DownloadChartButton chartRef={chartRef} />         
+            </ResponsiveContainer>   
         </div>
     );
 }

@@ -135,6 +135,15 @@ export default function FacilityThermalChart() {
           position: "relative",
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginBottom: "12px",
+          }}
+        >
+          <DownloadChartButton chartRef={chartRef} title="Facility Thermal - Carga Térmica, Eléctrica y Enfriamiento por Zona" />
+        </div>
         <div style={{ width: "100%", height: "320px" }}>
           <ResponsiveContainer>
             <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
@@ -183,8 +192,7 @@ export default function FacilityThermalChart() {
               />
             </BarChart>
           </ResponsiveContainer>
-        </div>
-        <DownloadChartButton chartRef={chartRef} title="Facility Thermal - Carga Térmica, Eléctrica y Enfriamiento por Zona"/> 
+        </div> 
       </div>
     </section>
   );
