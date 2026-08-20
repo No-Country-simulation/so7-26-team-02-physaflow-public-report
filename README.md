@@ -155,8 +155,10 @@ pnpm test
 ```
 
 ## 🌐 Despliegue
-
-_(completar según el proveedor: Vercel, Netlify, servidor propio, etc.)_
+ 
+Este proyecto está desplegado en **[Vercel](https://vercel.com/)**.
+ 
+Cada push a la rama principal dispara un deploy automático.
 
 ## 🤝 Contribuir
 
