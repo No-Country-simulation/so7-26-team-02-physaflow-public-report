@@ -170,18 +170,9 @@ Las contribuciones son bienvenidas 🎉
 
 Revisa `CONTRIBUTING.md` para más detalles sobre el flujo y estándares de código.
 
-## 📄 Licencia
-
-Distribuido bajo la licencia **MIT**. Ver [`LICENSE`](./LICENSE) para más información.
 
 <br>
 
 <div align="center">
-
-### 📬 Contacto
-
-**PhysaFlow** · _(agregar sitio web, email o contacto de referencia)_
-
-<sub>Hecho con ⚡ por el equipo de PhysaFlow</sub>
-
+Team 2
 </div>
