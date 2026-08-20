@@ -20,7 +20,7 @@ export default function Home() {
         <figure className="not-prose mb-10 overflow-hidden rounded-xl border border-border sm:mb-12">
           <div className="relative aspect-[16/9] w-full bg-surface">
             <Image
-              src="/images/hero-datacenter.png"
+              src="/images/hero-datacenter-v16.png"
               alt="Ilustración conceptual de las tres capas de un data center: Facility, IT y Workload, mostrando la capacidad varada entre ellas"
               fill
               className="object-cover"
