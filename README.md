@@ -174,5 +174,5 @@ Revisa `CONTRIBUTING.md` para más detalles sobre el flujo y estándares de cód
 <br>
 
 <div align="center">
-Team 2
+## Team 2
 </div>
