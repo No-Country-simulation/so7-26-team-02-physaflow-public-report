@@ -160,7 +160,6 @@ _(completar según el proveedor: Vercel, Netlify, servidor propio, etc.)_
 
 ## 🤝 Contribuir
 
-Las contribuciones son bienvenidas 🎉
 
 1. Haz un fork del proyecto
 2. Crea tu rama (`git checkout -b feature/nueva-seccion`)
