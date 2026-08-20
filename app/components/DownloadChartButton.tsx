@@ -184,7 +184,7 @@ export default function DownloadChartButton({
         sm:py-2
       "
     >
-      <Download size={17} />
+      <Download size={17} aria-hidden="true" />
 
       <span className="hidden sm:inline">
         {isDownloading ? "Exporting..." : "Download"}

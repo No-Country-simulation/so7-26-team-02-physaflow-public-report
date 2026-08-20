@@ -135,7 +135,7 @@ export function TaxonomyHeaderNav({ currentSlug }: TaxonomyNavProps) {
           href="/taxonomy"
           className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-muted transition-colors hover:text-accent"
         >
-          <Network className="h-3.5 w-3.5" />
+          <Network className="h-3.5 w-3.5" aria-hidden="true" />
           <span>Taxonomía</span>
         </Link>
 
@@ -262,9 +262,9 @@ function NavCard({
           }`}
         >
           {isPrev ? (
-            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
+            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
           ) : (
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
           )}
           <span>{badge}</span>
         </div>

@@ -20,11 +20,11 @@ export default function PaletteTest() {
         </div>
   
         <div className="flex gap-2">
-          <span className="h-8 w-8 rounded bg-background border border-border" />
-          <span className="h-8 w-8 rounded bg-surface" />
-          <span className="h-8 w-8 rounded bg-primary" />
-          <span className="h-8 w-8 rounded bg-accent" />
-          <span className="h-8 w-8 rounded bg-accent-light" />
+          <span className="h-8 w-8 rounded bg-background border border-border" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-surface" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-primary" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-accent" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-accent-light" aria-hidden="true" />
         </div>
       </div>
     );
