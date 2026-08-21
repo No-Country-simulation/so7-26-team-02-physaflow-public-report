@@ -68,14 +68,14 @@ El objetivo es proveer a operadores y stakeholders un lenguaje común y métrica
 
 - **Framework:** Next.js (App Router) + TypeScript
 - **Contenido:** MDX (`mdx-components.tsx`)
-- **Gestor de paquetes:** pnpm (monorepo con `pnpm-workspace.yaml`)
+- **Gestor de paquetes:** npm (monorepo)
 - **Estilos:** TailwindCSS
 - **Despliegue:** Vercel
 
 ## ✅ Requisitos previos
 
 - Node.js `>= 18.x`
-- pnpm
+- npm
 
 ## 🚀 Instalación
 
@@ -85,20 +85,20 @@ git clone https://github.com/<usuario>/physaflow-public-report.git
 cd physaflow-public-report
 
 # Instalar dependencias
-pnpm install
+npm install
 ```
 
 ## ▶️ Uso
 
 ```bash
 # Entorno de desarrollo
-pnpm dev
+npm run dev
 
 # Build de producción
-pnpm build
+npm run build
 
 # Levantar build de producción
-pnpm start
+npm run start
 ```
 
 La app quedará disponible en `http://localhost:3000`.
@@ -143,14 +143,14 @@ physaflow-public-report/
 │   ├── postcss.config.mjs
 │   ├── tsconfig.json
 │   └── README.md
-├── pnpm-workspace.yaml
+├── package-lock.json
 └── README.md
 ```
 
 ## 🧪 Testing
 
 ```bash
-pnpm test
+npm test
 ```
 
 ## 🌐 Despliegue
