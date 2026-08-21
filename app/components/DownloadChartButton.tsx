@@ -154,8 +154,8 @@ export default function DownloadChartButton({
       onClick={handleDownload}
       disabled={isDownloading}
       data-chart-download-button
-      aria-label={isDownloading ? "Exporting chart" : "Download chart"}
-      title={isDownloading ? "Exporting..." : "Download chart"}
+      aria-label={isDownloading ? "Exportando grafico" : "Descargar grafico"}
+      title={isDownloading ? "Exportando..." : "Descargar grafico"}
       className="
         right-4
         top-4
@@ -187,7 +187,7 @@ export default function DownloadChartButton({
       <Download size={17} aria-hidden="true" />
 
       <span className="hidden sm:inline">
-        {isDownloading ? "Exporting..." : "Download"}
+        {isDownloading ? "Exportando..." : "Descargar"}
       </span>
     </button>
   );
