@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full justify-center bg-background px-4 py-8 sm:px-6 sm:py-16">
-      <article className="flex w-full max-w-3xl flex-col">
-        <header className="mb-10 border-b border-border pb-6 sm:mb-12 sm:pb-8">
+    <div className="w-full">
+      <article className="mx-auto flex w-full max-w-3xl flex-col pt-8 pb-16 sm:pt-12 sm:pb-24 md:pt-16 md:pb-32">
+        <header className="mb-8 sm:mb-10">
           <p className="mb-2 text-xs font-medium uppercase tracking-widest text-accent sm:text-sm">
             PhysaFlow Stranded Capacity Index
           </p>
@@ -14,6 +16,23 @@ export default function Home() {
           </p>
         </header>
 
+        {/* Hero image — reemplazar src cuando la imagen esté lista */}
+        <figure className="not-prose mb-10 overflow-hidden rounded-xl border border-border sm:mb-12">
+          <div className="relative aspect-[16/9] w-full bg-surface">
+            <Image
+              src="/images/hero-datacenter-v1.png"
+              alt="Ilustración conceptual de las tres capas de un data center: Facility, IT y Workload, mostrando la capacidad varada entre ellas"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
+          <figcaption className="border-t border-border bg-surface/50 px-4 py-2.5 text-center text-xs text-muted">
+            <strong className="font-semibold text-accent">Figura 1.</strong> Arquitectura de tres capas y focos de capacidad varada en data centers de IA.
+          </figcaption>
+        </figure>
+
         <section className="prose prose-invert lg:prose-lg max-w-none">
           <h2 className="mt-0 mb-4 border-b border-border pb-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl">
             Resumen Ejecutivo
@@ -24,12 +43,8 @@ export default function Home() {
           <p className="mb-6 leading-relaxed text-foreground/90">
             Este reporte presenta una taxonomía estandarizada para clasificar el desperdicio en tres capas críticas: Facility, IT y Workload. El objetivo es proveer a operadores y stakeholders con el vocabulario necesario para diagnosticar estas restricciones de forma precisa.
           </p>
-
-          <blockquote className="my-6 border-l-4 border-accent bg-surface py-2 pl-4 pr-3 text-sm italic text-foreground sm:pl-6 sm:pr-4 sm:text-base">
-            Illustrative data — not based on measured PhysaFlow results. Este reporte utiliza métricas de ejemplo para demostrar la estructura de la taxonomía.
-          </blockquote>
         </section>
       </article>
-    </main>
+    </div>
   );
 }
