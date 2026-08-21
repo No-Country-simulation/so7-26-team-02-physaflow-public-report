@@ -31,3 +31,57 @@ PhysaFlow Stranded capacity report es un **reporte web de "Informe de capacidad 
 - Permite versionar el contenido junto al código (mismo repo, mismo historial de Git).
 - Reduce la complejidad de infraestructura (no hay que levantar ni mantener un servidor de base de datos).
 - Next.js tiene soporte nativo/optimizado para renderizar MDX en tiempo de build (SSG).
+
+### 2.3 Estructura de Carpetas
+ 
+```
+so7-26-team-02-ph.../
+├── app/
+│   ├── citations/        # Páginas/rutas con las citaciones del reporte
+│   ├── components/       # Componentes reutilizables de UI
+│   ├── evidence/         # Páginas/rutas con la evidencia recopilada
+│   ├── problem/          # Páginas/rutas con el planteamiento del problema (casos)
+│   ├── sandbox/          # Entorno de pruebas / prototipado de componentes o vistas
+│   ├── taxonomy/         # Páginas/rutas con la taxonomía Facility / TI Workload
+│   ├── favicon.ico
+│   ├── globals.css       # Estilos globales (Tailwind)
+│   ├── layout.tsx        # Layout raíz de la aplicación
+│   └── page.tsx          # Página principal (Home)
+├── assets/               # Recursos estáticos del proyecto (imágenes, íconos propios)
+├── docs/                 # Documentación técnica del proyecto (este archivo vive aquí)
+├── public/               # Assets públicos servidos directamente por Next.js
+├── mdx-components.tsx    # Configuración global de componentes usados dentro de archivos MDX
+├── next.config.ts
+├── tsconfig.json
+├── postcss.config.mjs
+├── eslint.config.mjs
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── CONTRIBUTING.md
+└── README.md
+```
+
+ 
+### 2.4 Flujo de Renderizado de Contenido
+ 
+1. El contenido en formato `.mdx` se organiza por dominio dentro de `app/` (`citations`, `evidence`, `problem`, `taxonomy`).
+2. La configuración global de componentes MDX vive en `mdx-components.tsx` en la raíz del proyecto (mecanismo estándar de Next.js App Router para personalizar cómo se renderizan elementos MDX, ej. encabezados, links, bloques de código).
+3. En build time, Next.js lee y parsea el MDX correspondiente a cada ruta y lo renderiza como componentes React dentro del `layout.tsx` raíz.
+
+
+### 2.5 Taxonomía: Las Tres Capas de Stranded Capacity
+ 
+El núcleo conceptual del reporte es una **taxonomía de tres capas**, representada como un modelo apilado (ver navegación de la app: `Facility`, `IT`, `Workload`). Cada capa depende de la que tiene debajo, y un cuello de botella en una capa "vara" (deja inutilizable) la capacidad disponible en las capas superiores.
+ 
+| Capa | Qué incluye | Tipo de Stranded Capacity |
+|---|---|---|
+| **Facility Layer** | Infraestructura física: distribución eléctrica (power distribution), sistemas de enfriamiento (cooling systems) | **Stranded Facility Capacity** — infraestructura física subutilizada (ej. espacio o refrigeración disponible que no se aprovecha) |
+| **IT Layer** | Hardware de cómputo y almacenamiento: compute (GPU/CPU), storage | **Stranded IT Capacity** — hardware sin usar (unused hardware) por falta de energía, espacio o conectividad para activarlo |
+| **Workload Layer** | Cargas de trabajo que corren sobre el hardware: AI Training, Model Inference | **Stranded Workload Capacity** — capacidad de cómputo disponible que no se traduce en carga de trabajo real ejecutándose |
+ 
+**Idea central:** la capacidad total instalada en la capa inferior (Facility) no siempre se traduce en capacidad utilizable en la capa superior (Workload). El reporte documenta, capa por capa, dónde se pierde esa capacidad y por qué.
+ 
+Cada categoría de la taxonomía se relaciona con tres tipos de contenido, reflejados en la navegación de la app:
+- **Evidence** (`app/evidence`): datos/soportes que sustentan la existencia de capacidad varada en una capa específica.
+- **Problem** (`app/problem`): el planteamiento del problema que se busca resolver con el reporte.
+- **Citations** (`app/citations`): fuentes citadas que respaldan la evidencia y el análisis.
