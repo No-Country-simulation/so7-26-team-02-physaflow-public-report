@@ -100,6 +100,7 @@ Por eso, toda página que presenta cifras incluye la etiqueta:
  
 > *Illustrative data — no basado en resultados medidos de PhysaFlow.*
 
+
 ## 3. Convenciones del Proyecto
 
 ### 3.1 Criterios de Contenido Placeholder
@@ -112,4 +113,15 @@ Ese documento define qué contenido del reporte es ilustrativo/placeholder y cu�
  
 > Las convenciones de flujo de trabajo del equipo (cómo proponer cambios, formato de Pull Requests, proceso de revisión) están documentadas en **[`CONTRIBUTING.md`](./CONTRIBUTING.md)**, en esta misma carpeta.
  
+---
+ 
+## 4. Despliegue
+ 
+- **Plataforma:** Vercel
+- **Rama de producción:** `main` (o la que corresponda)
+- **Proceso de despliegue:** automático en cada push a la rama principal, vía integración Git de Vercel.
+---
 
+## 5. Referencias
+ 
+- Repositorio: `No-Country-simulation/so7-26-team-02-physaflow-public-report`
