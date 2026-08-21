@@ -38,9 +38,8 @@ El objetivo es proveer a operadores y stakeholders un lenguaje común y métrica
 
 <div align="center">
 
-  [![Ver Demo](https://img.shields.io/badge/▶_Ver_Demo-en_vivo-FFC53D?style=for-the-badge)](#)
+  [![Ver Demo](https://img.shields.io/badge/▶_Ver_Demo-en_vivo-FFC53D?style=for-the-badge)](https://so7-26-team-02-physaflow-public-rep-self.vercel.app/)
 
-  <sub>🚧 Próximamente — reemplaza el `#` por la URL del despliegue.</sub>
 
 </div>
 
