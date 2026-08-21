@@ -6,7 +6,7 @@
  
 ## 1. Resumen del Proyecto
  
-PhysaFlow es un **reporte web de "Stranded Capacity"** desarrollado con **Next.js** (full-stack), construido como parte del proyecto simulado No Country (equipo `so7-26-team-02`).
+PhysaFlow Stranded capacity report es un **reporte web de "Informe de capacidad varada"** desarrollado con **Next.js** (full-stack), construido como parte del proyecto simulado No Country (equipo `so7-26-team-02`).
  
 **Objetivo del proyecto:** presentar un reporte de capacidad estratégica organizado mediante una taxonomía de **Facility / TI Workload**, documentando evidencia, casos (problem) y citaciones asociadas a cada categoría de la taxonomía.
  
