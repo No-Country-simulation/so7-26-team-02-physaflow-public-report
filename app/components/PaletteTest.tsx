@@ -10,21 +10,21 @@ export default function PaletteTest() {
         </p>
   
         <div className="flex gap-3">
-          <button className="px-4 py-2 rounded-lg bg-accent text-background font-medium hover:bg-accent-light transition-colors">
+          <button type="button" className="px-4 py-2 rounded-lg bg-accent text-background font-medium hover:bg-accent-light transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             Primary
           </button>
   
-          <button className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-primary transition-colors">
+          <button type="button" className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             Secondary
           </button>
         </div>
   
         <div className="flex gap-2">
-          <span className="h-8 w-8 rounded bg-background border border-border" />
-          <span className="h-8 w-8 rounded bg-surface" />
-          <span className="h-8 w-8 rounded bg-primary" />
-          <span className="h-8 w-8 rounded bg-accent" />
-          <span className="h-8 w-8 rounded bg-accent-light" />
+          <span className="h-8 w-8 rounded bg-background border border-border" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-surface" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-primary" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-accent" aria-hidden="true" />
+          <span className="h-8 w-8 rounded bg-accent-light" aria-hidden="true" />
         </div>
       </div>
     );

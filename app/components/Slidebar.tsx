@@ -130,7 +130,7 @@ const renderNavigation = (collapsed = false) => (
                                     : "text-muted hover:translate-x-1 hover:bg-background hover:text-foreground"
                             }`}
                         >
-                            <Icon className={`h-5 w-5 shrink-0 ${isActive ? "text-accent": "text-muted"}`}/>
+                            <Icon className={`h-5 w-5 shrink-0 ${isActive ? "text-accent": "text-muted"}`} aria-hidden="true"/>
                             {!collapsed && (
                                 <span className="text-[18px]">{label}</span>
                             )}
@@ -197,9 +197,9 @@ return (
                     className={`z-10 ${buttonStyles}`}
                 >
                     {isOpen ? (
-                        <PanelLeftClose className="h-5 w-5" />
+                        <PanelLeftClose className="h-5 w-5" aria-hidden="true" />
                     ) : (
-                        <PanelLeftOpen className="h-5 w-5" />
+                        <PanelLeftOpen className="h-5 w-5" aria-hidden="true" />
                     )}
                 </button>
             </div>
@@ -225,7 +225,7 @@ return (
                     onClick={() => setIsMobileOpen(true)}
                     className={buttonStyles}
                 >
-                    <Menu className="h-5 w-5" />
+                    <Menu className="h-5 w-5" aria-hidden="true" />
                 </button>
             </header>
 
@@ -258,7 +258,7 @@ return (
                         }
                         className={`ml-3 ${buttonStyles}`}
                     >
-                        <X className="h-5 w-5" />
+                        <X className="h-5 w-5" aria-hidden="true" />
                     </button>
                 </div>
 

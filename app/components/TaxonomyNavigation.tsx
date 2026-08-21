@@ -124,8 +124,8 @@ export function TaxonomyHeaderNav({ currentSlug }: TaxonomyNavProps) {
           <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         </Link>
       ) : (
-        <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/20 text-muted/25">
-          <ChevronLeft className="h-4 w-4" />
+        <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/20 text-muted/25" aria-disabled="true" role="img" aria-label="Sin página anterior">
+          <ChevronLeft className="h-4 w-4" aria-hidden="true" />
         </span>
       )}
 
@@ -135,7 +135,7 @@ export function TaxonomyHeaderNav({ currentSlug }: TaxonomyNavProps) {
           href="/taxonomy"
           className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-muted transition-colors hover:text-accent"
         >
-          <Network className="h-3.5 w-3.5" />
+          <Network className="h-3.5 w-3.5" aria-hidden="true" />
           <span>Taxonomía</span>
         </Link>
 
@@ -166,8 +166,8 @@ export function TaxonomyHeaderNav({ currentSlug }: TaxonomyNavProps) {
           <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
       ) : (
-        <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/20 text-muted/25">
-          <ChevronRight className="h-4 w-4" />
+        <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/20 text-muted/25" aria-disabled="true" role="img" aria-label="Sin página siguiente">
+          <ChevronRight className="h-4 w-4" aria-hidden="true" />
         </span>
       )}
     </div>
@@ -262,9 +262,9 @@ function NavCard({
           }`}
         >
           {isPrev ? (
-            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
+            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
           ) : (
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
           )}
           <span>{badge}</span>
         </div>

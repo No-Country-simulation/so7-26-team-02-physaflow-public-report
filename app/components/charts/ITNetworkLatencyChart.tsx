@@ -12,6 +12,8 @@ import {
   Legend,
   ReferenceArea,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
 
 const data = [
   { hour: "00:00", latency: 2.1, throughput: 12 },
@@ -111,6 +113,7 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 
 export default function ITNetworkLatencyChart() {
   const [isMobile, setIsMobile] = useState(false);
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 480);
@@ -120,7 +123,7 @@ export default function ITNetworkLatencyChart() {
   }, []);
 
   return (
-    <section style={{ margin: "2.5rem 0" }}>
+    <section style={{ margin: "2.5rem 0" }} aria-label="Gráfico: Latencia y throughput de red durante 24 horas">
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
         <span
           style={{
@@ -137,13 +140,24 @@ export default function ITNetworkLatencyChart() {
       </div>
 
       <div
+        ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
           borderRadius: "12px",
           padding: "24px 16px 16px",
+          position: "relative",
         }}
       >
+        <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginBottom: "12px",
+            }}
+        >
+          <DownloadChartButton chartRef={chartRef} title="IT Network - Latencia y Throughput de Red — 24h"/>
+        </div>
         <div style={{ width: "100%", height: "320px" }}>
           <ResponsiveContainer>
             <LineChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
