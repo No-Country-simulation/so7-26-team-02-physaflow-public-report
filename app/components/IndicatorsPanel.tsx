@@ -13,10 +13,19 @@ export default function IndicatorsPanel({ title, items }: IndicatorsPanelProps) 
   return (
     <section className="my-10" aria-labelledby={headingId}>
       <div className="mb-5 flex items-center gap-4">
-        <h3 id={headingId} className="text-xs font-medium uppercase tracking-widest text-accent">
+        <span
+          id={headingId}
+          style={{
+            fontSize: "10px",
+            fontWeight: 500,
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            color: "#c9a227",
+          }}
+        >
           {title}
-        </h3>
-        <span aria-hidden="true" className="h-px flex-1 bg-border" />
+        </span>
+        <span aria-hidden="true" style={{ height: "1px", flex: 1, background: "#2a3830" }} />
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
