@@ -104,9 +104,12 @@ Por eso, toda página que presenta cifras incluye la etiqueta:
 
 ### 3.1 Criterios de Contenido Placeholder
  
-> Esta sección se documenta en un archivo separado: **[`PLACEHOLDER_CONTENT_GUIDELINES.md`](./PLACEHOLDER_CONTENT_GUIDELINES.md)**.
-
+> Esta sección se documenta en un archivo separado: **[`placeholder-content-guidelines.md`](./placeholder-content-guidelines.md)**.
+ 
+Ese documento define qué contenido del reporte es ilustrativo/placeholder y cuál es definitivo, la convención de etiquetado (`{/* TODO: placeholder */}` y la etiqueta visible *"Illustrative data"*), y el checklist a revisar antes del Demo Day.
+ 
 ### 3.2 Guía de Contribución
  
-> Las convenciones de flujo de trabajo del equipo (cómo proponer cambios, formato de Pull Requests, proceso de revisión) están documentadas en **[`CONTRIBUTING.md`](../CONTRIBUTING.md)**, en la raíz del repositorio.
+> Las convenciones de flujo de trabajo del equipo (cómo proponer cambios, formato de Pull Requests, proceso de revisión) están documentadas en **[`CONTRIBUTING.md`](./CONTRIBUTING.md)**, en esta misma carpeta.
+ 
 
