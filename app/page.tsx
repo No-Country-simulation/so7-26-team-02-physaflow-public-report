@@ -33,14 +33,14 @@ export default function Home() {
           </figcaption>
         </figure>
 
-        <section className="prose prose-invert lg:prose-lg max-w-none">
+        <section className="prose prose-invert lg:prose-lg max-w-none prose-p:text-muted">
           <h2 className="mt-0 mb-4 border-b border-border pb-2 text-xl font-semibold tracking-tight text-foreground sm:text-2xl md:text-3xl">
             Resumen Ejecutivo
           </h2>
-          <p className="mb-6 leading-relaxed text-foreground/90">
+          <p className="mb-6 leading-relaxed text-muted">
             A medida que los data centers modernos escalan para soportar cargas de trabajo de Inteligencia Artificial, surge una ineficiencia silenciosa: la <strong className="text-accent-light">stranded capacity</strong> (capacidad varada). Este fenómeno ocurre cuando la infraestructura física y las capas operativas no se coordinan, dejando capacidad energética o computacional encendida y pagada, pero inutilizable.
           </p>
-          <p className="mb-6 leading-relaxed text-foreground/90">
+          <p className="mb-6 leading-relaxed text-muted">
             Este reporte presenta una taxonomía estandarizada para clasificar el desperdicio en tres capas críticas: Facility, IT y Workload. El objetivo es proveer a operadores y stakeholders con el vocabulario necesario para diagnosticar estas restricciones de forma precisa.
           </p>
         </section>
