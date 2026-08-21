@@ -140,7 +140,7 @@ export default function CitationBlock(props: CitationBlockProps) {
                 className={`inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-md border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                   isCopied
                     ? "border-accent bg-accent/10 text-accent"
-                    : "border-border bg-background text-accent hover:bg-primary hover:text-foreground"
+                    : "border-border bg-background/80 text-accent hover:border-accent/50 hover:bg-accent/10 hover:shadow-[0_4px_15px_rgba(201,162,39,0.08)] transition-all duration-300"
                 }`}
               >
                 {isCopied ? (
