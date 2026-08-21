@@ -1,0 +1,55 @@
+# Evidence — Metodología de Datos
+
+Este reporte define un marco de clasificación para la stranded capacity en data centers de IA. Esta sección documenta la **metodología detrás de los datos** presentados en las páginas de taxonomía: cómo se construyeron los valores, qué criterios definen los rangos y qué representa cada indicador. El objetivo es que el lector interprete las cifras con el mismo rigor con el que lee el marco conceptual.
+
+## Datos ilustrativos, no mediciones reales
+
+Todos los valores numéricos del reporte son **ilustrativos**. No provienen de mediciones, auditorías ni resultados operativos de PhysaFlow, y no deben leerse como evidencia del desempeño de una instalación específica.
+
+El alcance del proyecto es metodológico: definir el vocabulario y la estructura con la que la industria puede identificar y medir la capacidad varada. Publicar cifras operativas reales exigiría acceso a telemetría de instalaciones concretas, lo que excede el alcance definido. Los valores cumplen una función demostrativa: muestran cómo se aplica la taxonomía, cómo se componen los indicadores y qué tipo de lectura habilita cada capa.
+
+Por eso, toda página que presenta cifras incluye la etiqueta:
+
+> **Illustrative data — no basado en resultados medidos de PhysaFlow.**
+
+## Cómo se definieron los rangos numéricos
+
+Cada cifra se construyó para ser:
+
+- **Plausible**: coherente con la magnitud física del fenómeno descrito en cada capa.
+- **Consistente**: los indicadores de una misma capa se relacionan entre sí sin contradicciones.
+- **Precisa sin exceso**: máximo un decimal y unidades explícitas, evitando falsa exactitud.
+
+Las métricas del reporte se mueven dentro de los siguientes rangos de referencia:
+
+| Métrica | Rango de referencia |
+| --- | ---: |
+| Capacidad stranded | 5%–30% |
+| Utilización | 40%–85% |
+| Capacidad no utilizable | 5%–25% |
+| Impacto en eficiencia | 3%–20% |
+| Tiempo bajo restricción | 2–24 horas |
+
+El valor concreto de cada capa se elige dentro de estos rangos de modo que la narrativa de la página lo sostenga: una capa que describe restricción térmica severa usa tiempos bajo restricción en el extremo superior del rango, mientras una capa con cuellos de botella puntuales presenta valores más contenidos.
+
+## Qué representa cada indicador
+
+Los indicadores describen la relación entre capacidad pagada, capacidad disponible y trabajo computacional producido:
+
+- **Capacidad instalada** (MW): la potencia eléctrica instalada o contratada en la capa.
+- **Capacidad utilizable** (MW): la porción de la capacidad instalada que la infraestructura puede entregar a las cargas.
+- **Capacidad stranded** (%): la porción de la capacidad instalada que está pagada y encendida pero no produce trabajo computacional; se deriva de la diferencia entre capacidad instalada y utilizable.
+- **Utilización** (%): la proporción de la capacidad disponible que las cargas ocupan efectivamente.
+- **Capacidad no utilizable** (%): la porción de la capacidad que no puede entregarse por restricciones técnicas.
+- **Impacto en eficiencia** (%): el efecto estimado de las restricciones sobre la eficiencia del consumo energético.
+- **Tiempo bajo restricción** (horas): la duración durante la cual la capa opera con capacidad limitada.
+
+Los indicadores se presentan como snapshot: describen el estado de una capa en un momento dado, no una serie temporal.
+
+## Cómo leer los valores
+
+Las páginas de taxonomía ([Facility](/taxonomy/facility), [IT](/taxonomy/it), [Workload](/taxonomy/workload)) aplican estos indicadores a cada capa. Los valores demuestran la estructura del marco de clasificación, no el rendimiento de una instalación real: la lectura correcta es comparar cómo cambia la composición de la capacidad varada entre capas, qué restricción domina en cada una y qué indicador la hace visible. El marco queda preparado para interpretar datos medidos cuando estén disponibles.
+
+---
+
+> **Illustrative data — no basado en resultados medidos de PhysaFlow.**

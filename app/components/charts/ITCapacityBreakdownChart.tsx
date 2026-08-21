@@ -10,6 +10,8 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
 
 const data = [
   { resource: "Network Links", utilized: 58, stranded: 14, unusable: 9, available: 19 },
@@ -95,8 +97,10 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 };
 
 export default function ITCapacityBreakdownChart() {
+  const chartRef = useRef<HTMLDivElement>(null);
+
   return (
-    <section style={{ margin: "2.5rem 0" }}>
+    <section style={{ margin: "2.5rem 0" }} aria-label="Gráfico: Desglose de capacidad IT por recurso">
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
         <span
           style={{
@@ -113,13 +117,24 @@ export default function ITCapacityBreakdownChart() {
       </div>
 
       <div
+      ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
           borderRadius: "12px",
           padding: "24px 16px 16px",
+          position: "relative",
         }}
       >
+        <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginBottom: "12px",
+            }}
+        >
+          <DownloadChartButton chartRef={chartRef} title="IT capacity - Desglose de Capacidad IT "/>
+        </div>
         <div style={{ width: "100%", height: "300px" }}>
           <ResponsiveContainer>
             <BarChart
