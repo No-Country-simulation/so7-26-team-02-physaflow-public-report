@@ -71,7 +71,7 @@ so7-26-team-02-ph.../
 
 ### 2.5 Taxonomía: Las Tres Capas de Stranded Capacity
  
-El núcleo conceptual del reporte es una **taxonomía de tres capas**, representada como un modelo apilado (ver navegación de la app: `Facility`, `IT`, `Workload`). Cada capa depende de la que tiene debajo, y un cuello de botella en una capa "vara" (deja inutilizable) la capacidad disponible en las capas superiores.
+El núcleo conceptual del reporte es una **taxonomía de tres capas**, representada como un modelo apilado (`Facility`, `IT`, `Workload`). Cada capa depende de la que tiene debajo, y un cuello de botella en una capa "vara" (deja inutilizable) la capacidad disponible en las capas superiores.
  
 | Capa | Qué incluye | Tipo de Stranded Capacity |
 |---|---|---|
@@ -85,3 +85,22 @@ Cada categoría de la taxonomía se relaciona con tres tipos de contenido, refle
 - **Evidence** (`app/evidence`): datos/soportes que sustentan la existencia de capacidad varada en una capa específica.
 - **Problem** (`app/problem`): el planteamiento del problema que se busca resolver con el reporte.
 - **Citations** (`app/citations`): fuentes citadas que respaldan la evidencia y el análisis.
+
+### 2.6 Metodología de Datos (Evidence)
+ 
+> Fuente: contenido de la sección **Evidence — Metodología de Datos** de la aplicación.
+ 
+Esta sección documenta cómo se construyeron los datos numéricos que aparecen en las páginas de taxonomía (Facility, IT, Workload), para que se interpreten con el mismo rigor que el marco conceptual.
+ 
+**Datos ilustrativos, no mediciones reales**
+ 
+Todos los valores numéricos del reporte son **ilustrativos**: no provienen de mediciones, auditorías ni resultados operativos de PhysaFlow, y no deben leerse como evidencia del desempeño de una instalación específica. El alcance del proyecto es metodológico — definir el vocabulario y la estructura con la que la industria puede identificar y medir la capacidad varada — no operativo, ya que publicar cifras reales exigiría acceso a telemetría de instalaciones concretas.
+ 
+Por eso, toda página que presenta cifras incluye la etiqueta:
+ 
+> *Illustrative data — no basado en resultados medidos de PhysaFlow.*
+
+## 3. Convenciones del Proyecto
+
+
+
