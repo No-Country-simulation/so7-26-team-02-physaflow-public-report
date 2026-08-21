@@ -103,19 +103,6 @@ npm run start
 
 La app quedará disponible en `http://localhost:3000`.
 
-## ⚙️ Configuración
-
-Crea un archivo `.env.local` en la raíz del proyecto a partir de `.env.example`:
-
-```bash
-cp .env.example .env.local
-```
-
-| Variable | Descripción |
-|---|---|
-| `NEXT_PUBLIC_SITE_URL` | URL base del sitio |
-| `...` | _(completar según variables reales)_ |
-
 ## 📁 Estructura del proyecto
 
 ```
