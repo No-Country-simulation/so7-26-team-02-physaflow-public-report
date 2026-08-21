@@ -102,5 +102,11 @@ Por eso, toda página que presenta cifras incluye la etiqueta:
 
 ## 3. Convenciones del Proyecto
 
+### 3.1 Criterios de Contenido Placeholder
+ 
+> Esta sección se documenta en un archivo separado: **[`PLACEHOLDER_CONTENT_GUIDELINES.md`](./PLACEHOLDER_CONTENT_GUIDELINES.md)**.
 
+### 3.2 Guía de Contribución
+ 
+> Las convenciones de flujo de trabajo del equipo (cómo proponer cambios, formato de Pull Requests, proceso de revisión) están documentadas en **[`CONTRIBUTING.md`](../CONTRIBUTING.md)**, en la raíz del repositorio.
 
