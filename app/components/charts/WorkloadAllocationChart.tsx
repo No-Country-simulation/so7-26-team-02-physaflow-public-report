@@ -11,6 +11,9 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
+import { useRef } from "react";
+import DownloadChartButton from "../DownloadChartButton";
+
 
 const data = [
   { period: "Mañana", batch: 28, realtime: 22, reserve: 6, idle: 44 },
@@ -104,6 +107,7 @@ const renderLegend = (props: { payload?: ReadonlyArray<{ value?: string; color?:
 
 export default function WorkloadAllocationChart() {
   const [isTinyMobile, setIsTinyMobile] = useState(false);
+  const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkTiny = () => setIsTinyMobile(window.innerWidth <= 340);
@@ -113,7 +117,7 @@ export default function WorkloadAllocationChart() {
   }, []);
 
   return (
-    <section style={{ margin: "2.5rem 0" }}>
+    <section style={{ margin: "2.5rem 0" }} aria-label="Gráfico: Distribución de cargas por franja horaria">
       <div style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "1rem" }}>
         <span
           style={{
@@ -130,13 +134,25 @@ export default function WorkloadAllocationChart() {
       </div>
 
       <div
+        ref={chartRef}
         style={{
           background: "#14291e",
           border: "1px solid #2a3830",
           borderRadius: "12px",
           padding: "24px 16px 16px",
+          position: "relative",
         }}
       >
+      <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginBottom: "2px",
+          }}
+        >
+           <DownloadChartButton chartRef={chartRef} title="Workload - Distribución de Cargas por Franja"/>
+        </div>
+
         <div style={{ width: "100%", height: "320px" }}>
           <ResponsiveContainer>
             <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>

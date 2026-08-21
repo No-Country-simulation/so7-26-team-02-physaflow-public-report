@@ -30,6 +30,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="h-screen flex flex-row" suppressHydrationWarning>
+        {/* Skip link — WCAG 2.4.1 */}
+        <a
+          href="#app-scroll-container"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-accent focus:text-background focus:font-semibold"
+        >
+          Saltar al contenido principal
+        </a>
         <Slidebar />
         {/* Gutter horizontal único del contenido: px-5 (20px) en mobile,
             sm:px-6 (24px) en el resto. pt-16 reserva el alto del header

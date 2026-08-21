@@ -9,12 +9,13 @@ type IndicatorsPanelProps = {
 };
 
 export default function IndicatorsPanel({ title, items }: IndicatorsPanelProps) {
+  const headingId = `indicators-${title.toLowerCase().replace(/\s+/g, "-")}`;
   return (
-    <section className="my-10">
+    <section className="my-10" aria-labelledby={headingId}>
       <div className="mb-5 flex items-center gap-4">
-        <span className="text-xs font-medium uppercase tracking-widest text-accent">
+        <h3 id={headingId} className="text-xs font-medium uppercase tracking-widest text-accent">
           {title}
-        </span>
+        </h3>
         <span aria-hidden="true" className="h-px flex-1 bg-border" />
       </div>
 
